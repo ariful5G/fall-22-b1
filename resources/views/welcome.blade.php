@@ -21,6 +21,6 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>.........................Hello Kodeeo Limited 1</h1>
+        <h1>{{config("app.name")}}</h1>
     </body>
 </html>
