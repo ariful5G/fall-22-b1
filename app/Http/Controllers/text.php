@@ -8,6 +8,6 @@ class text extends Controller
 {
     public function index()
     {
-        return view("admin");
+        return view("Practice.admin2");
     }
 }

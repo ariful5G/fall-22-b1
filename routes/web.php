@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Arif;
-use App\Http\Controllers\text;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Order;
+use App\Http\Controllers\MasterController;
+// use App\Http\Controllers\AdminController;
+// use App\Http\Controllers\text;
+// use App\Http\Controllers\Arif;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +17,8 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/2',[text::class,'index']);
-Route::get('/',[AdminController::class,'Home']);
-Route::get('/3',[text::class,'index']);
+Route::get('/orders',[Order::class,'Home']);
+Route::get('/',[MasterController::class,'home']);
+// Route::get('/1',[AdminController::class,'Home']);
+// Route::get('/sbadmin',[text::class,'index']);
+// Route::get('/welcome',[Arif::class,'Home']);

@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class Arif extends Controller
 {
     public function Home(){
-        return view("welcome");
+        return view("Practice.welcome");
     }
 }
