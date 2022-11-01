@@ -32,3 +32,4 @@ Route::get('/Booking',[BookingController::class,'list']);
 Route::get('/Amenities',[AmenitiesController::class,'list']);
 Route::get('/Payment',[PaymentController::class,'list']);
 Route::get('/Reports',[ReportsController::class,'list']);
+Route::post('/User/store',[UserController::class,'store'])->name('user.store');
