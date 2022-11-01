@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class Hotel extends Controller
 {
     public function Home()
     {
-        return view("Practice.Admin");
+        return view("backend.pages.hotel");
     }
-
 }

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Order List</h1>
+<h1>Reports</h1>
     <table class="table table-striped">
         <thead>
         <tr>

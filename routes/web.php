@@ -1,11 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Order;
 use App\Http\Controllers\MasterController;
-// use App\Http\Controllers\AdminController;
-// use App\Http\Controllers\text;
-// use App\Http\Controllers\Arif;
+use App\Http\Controllers\Hotel;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\Room_typeController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\AmenitiesController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ReportsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +22,13 @@ use App\Http\Controllers\MasterController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/orders',[Order::class,'Home']);
 Route::get('/',[MasterController::class,'home']);
-// Route::get('/1',[AdminController::class,'Home']);
-// Route::get('/sbadmin',[text::class,'index']);
-// Route::get('/welcome',[Arif::class,'Home']);
+Route::get('/Hotel',[Hotel::class,'Home']);
+Route::get('/User',[UserController::class,'list']);
+Route::get('/Guest',[GuestController::class,'list']);
+Route::get('/Room_type',[Room_typeController::class,'list']);
+Route::get('/Rooms',[RoomController::class,'vip']);
+Route::get('/Booking',[BookingController::class,'list']);
+Route::get('/Amenities',[AmenitiesController::class,'list']);
+Route::get('/Payment',[PaymentController::class,'list']);
+Route::get('/Reports',[ReportsController::class,'list']);
