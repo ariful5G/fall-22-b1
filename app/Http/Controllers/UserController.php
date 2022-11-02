@@ -19,8 +19,8 @@ class UserController extends Controller
             //database column name => input field name
                 'fast_name'=>$request->FirstName,
                 'last_name'=>$request->LastName,
-                'status'=>$request->email,
-                'description'=>$request->description
+                'email'=>$request->email,
+                'password'=>$request->password,
         ]);
 
 //        return redirect()->route('category.list');
