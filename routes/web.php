@@ -25,6 +25,7 @@ use App\Http\Controllers\ReportsController;
 Route::get('/',[MasterController::class,'home']);
 Route::get('/Hotel',[Hotel::class,'Home']);
 Route::get('/User',[UserController::class,'list']);
+Route::get('/user/create',[UserController::class,'createForm']);
 Route::get('/Guest',[GuestController::class,'list']);
 Route::get('/Room_type',[Room_typeController::class,'list']);
 Route::get('/Rooms',[RoomController::class,'vip']);
