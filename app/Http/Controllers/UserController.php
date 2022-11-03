@@ -9,7 +9,8 @@ class UserController extends Controller
 {
     public function list()
     {
-        return view("backend.pages.user_list.users");
+        $user_list=User::all();
+        return view('backend.pages.user_list.users',compact('user_list'));
     }
 
     public function createForm()
