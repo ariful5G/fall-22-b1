@@ -20,7 +20,7 @@
         </thead>
         <tbody>
 
-        @foreach($user_list as $data)
+@foreach($user_list as $data)
 
 <tr>
     <th scope="row">{{$data->id}}
@@ -41,6 +41,7 @@
 @endforeach
 </tbody>
 </table>
+{{$user_list->links()}}
 
 @endsection
 

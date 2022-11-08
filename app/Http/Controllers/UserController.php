@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function list()
     {
-        $user_list=User::all();
+        $user_list=User::paginate(5);
         return view('backend.pages.user_list.users',compact('user_list'));
     }
 
@@ -21,6 +21,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
        //dd($request->all());
+        $request->validate(['email'=>'required|unique:users,email',]);
         User::create([
             //database column name => input field name
                 'fast_name'=>$request->FirstName,
