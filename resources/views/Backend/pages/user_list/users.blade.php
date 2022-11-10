@@ -15,15 +15,16 @@
             <th scope="col">last_name</th>
             <th scope="col">email</th>
             <th scope="col">password</th>
+            <th scope="col">image</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
 
-@foreach($user_list as $data)
+@foreach($user_list as $key=>$data)
 
 <tr>
-    <th scope="row">{{$data->id}}
+    <th scope="row">{{$key + $user_list->firstItem()}}
     <!-- <td>
         <img src="{{$data->image}}" alt="Image">
     </td> -->
@@ -31,6 +32,10 @@
     <td>{{$data->last_name}}</td>
     <td>{{$data->email}}</td>
     <td>{{$data->password}}</td>
+    <td>
+        <img src="{{url('/uploads/'.$data->image)}}"style="height:60px; width:60px"alt="My Image">
+        
+    </td>
 
     <td>
         <a href="" class="btn btn-outline-primary">Update</a>

@@ -1,8 +1,15 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+ 
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{url('/')}}">
+            <a class="nav-link active" aria-current="page" href="{{url('/admin')}}">
+              <span data-feather="home"></span>
+              Admin
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{url('/')}}">
               <span data-feather="home"></span>
               Dashboard
             </a>
@@ -15,8 +22,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url('/User')}}">
-              <span data-feather="file"></span>
+              <span class="fa-solid fa-user" data-feather="file"></span>
               Users
+  
             </a>
           </li>
           <li class="nav-item">
@@ -60,6 +68,18 @@
             <a class="nav-link" href="{{url('/Reports')}}">
               <span data-feather="file"></span>
               Reports
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('product.list')}}">
+              <span data-feather="file"></span>
+              Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('/Category')}}">
+              <span data-feather="file"></span>
+              Category
             </a>
           </li>
     </nav>
