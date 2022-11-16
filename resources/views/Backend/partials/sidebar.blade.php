@@ -5,7 +5,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{url('/admin')}}">
               <span data-feather="home"></span>
-              Admin
+              <i class="fa-solid fa-user-secret"></i> Admin
             </a>
           </li>
           <li class="nav-item">

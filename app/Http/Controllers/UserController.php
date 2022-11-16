@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function list()
     {
-        $user_list=User::paginate(7);
+        $user_list=User::paginate(5);
         return view('backend.pages.user_list.users',compact('user_list'));
     }
 
@@ -43,7 +44,34 @@ class UserController extends Controller
 
 
 //        return redirect()->route('category.list');
-        return redirect()->back();
+        return redirect()->route('user')->with('message','Product Created Successful.');
 
+    }
+    public function login()
+    {
+        return view('backend.pages.login');
+    }
+    public function doLogin(Request $request)
+    {
+
+        $credentials=$request->except('_token');
+        //dd($credentials);
+    //    $credentials=$request->only(['email','password']);
+        Auth::attempt($credentials);
+        if(auth()->user())
+        {
+            
+            return redirect()->route('dashboard');
+
+        }
+       // dd('logon oi nai');
+        return redirect()->back()->with('message','invalid credentials');
+
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->back()->with('message','Logout successful.');
     }
 }

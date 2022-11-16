@@ -33,7 +33,7 @@
     <td>{{$data->email}}</td>
     <td>{{$data->password}}</td>
     <td>
-        <img src="{{url('/uploads/'.$data->image)}}"style="height:60px; width:60px"alt="My Image">
+        <img src="{{url('/uploads/'.$data->image)}}"style="height:60px; width:70px"alt="My Image">
         
     </td>
 

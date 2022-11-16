@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('room_types', function (Blueprint $table) {
             $table->id();
+            $table->string('room_image');
             $table->string('name',100);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('mobile',20);
+            $table->integer('amount');
             $table->timestamps();
         });
     }
