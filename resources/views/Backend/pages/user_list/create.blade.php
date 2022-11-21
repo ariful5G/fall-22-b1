@@ -4,16 +4,17 @@
 
 
 	<h2>User Registration form</h2>
+
 	<form method="POST" action="{{route('user.store')}}" enctype="multipart/form-data">
+
+	@if(session()->has('message'))
+        <p class="alert alert-success">{{session()->get('message')}}</p>
+    @endif
 
 	@if($errors->any())
     	@foreach($errors->all() as $message)
         	<p class="alert alert-danger">{{$message}}</p>
         @endforeach
-    @endif
-
-	@if(session()->has('message'))
-        <p class="alert alert-success">{{session()->get('message')}}</p>
     @endif
 
 	@csrf
@@ -24,7 +25,7 @@
 		password: <input type="password"name="password" class="form-control"min="4" ><br>
 		<div class="form-group">
             <label for="image">Upload Image</label>
-            <input name="image" type="file" class="form-control" id="image">
+            <input type="file" name="image" class="form-control">
         </div>
 		<br>  
 		Date of Birth: <input type="date" name= "birthday"><br><br>
@@ -36,6 +37,4 @@
 		<input type="reset">
 	</form>
 
-
-</html>
  @endsection

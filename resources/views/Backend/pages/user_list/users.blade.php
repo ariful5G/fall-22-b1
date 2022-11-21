@@ -4,9 +4,8 @@
 
     <h1>User List</h1>
 
-        <a href="{{url('/user/create')}}"class="btn btn-success">
-        Create New Form
-    </a>
+    <a href="{{route('users.create')}}"class="btn btn-success">Create New Form</a>
+    
     <table class="table">
         <thead>
         <tr>

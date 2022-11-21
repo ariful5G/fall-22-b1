@@ -9,7 +9,7 @@ class Room_typeController extends Controller
 {
     public function list()
     {
-        $room_types=Room_type::paginate(3);
+        $room_types=Room_type::paginate(4);
         return view('backend.pages.room_types.Room_type', compact('room_types'));
     }
     public function CreateForm()
@@ -33,6 +33,27 @@ class Room_typeController extends Controller
             'amount'=>$request->amount,
         ]);
     
-        return redirect()->back();
+        return redirect()->back()->with('message','room added successfully.');
+    }
+    
+    public function roomdelete($roomDelete)
+
+    {
+        
+        Room_type::find($roomDelete)->delete();
+        return redirect()->back()->with('message','room deleted successfully.');
+        
+        // {$test=Room_type::find($roomDelete);
+        //      if($test){
+        //      $test->delete();
+        //      return redirect()->back()->with('message','product deleted successfully.');
+        //      } else{ return redirect()->back()->with('error','product not found.');
+        //      }}
+    }
+
+    public function roomView($roomView)
+    {
+        $room=Room_type::find($roomView);
+        return view('backend.pages.room_types.view',compact('room'));
     }
 }

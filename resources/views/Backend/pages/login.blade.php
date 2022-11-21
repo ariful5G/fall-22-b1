@@ -32,7 +32,15 @@
 				</div>
 			</div>
 			<div class="card-body">
-                
+
+             @if(session()->has('message'))
+			 <p class="alert alert-danger"> {{session()->get('message')}}</p>
+			 @endif 
+
+			 @if(session()->has('message1'))
+			 <p class="alert alert-success"> {{session()->get('message1')}}</p>
+			 @endif 
+
             <form action="{{route('do.login')}}" method="post">
             @csrf
 					<div class="input-group form-group">

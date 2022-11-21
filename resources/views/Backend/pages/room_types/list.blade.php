@@ -4,6 +4,10 @@
 
 <h2> Room Details </h2>
 
+@if(session()->has('message'))
+<p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
+
 <form method='POST' action="{{route('room_type.store')}}" enctype="multipart/form-data">
      @csrf
      <div class="form-group">

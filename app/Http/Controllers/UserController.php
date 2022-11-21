@@ -44,7 +44,7 @@ class UserController extends Controller
 
 
 //        return redirect()->route('category.list');
-        return redirect()->route('user')->with('message','Product Created Successful.');
+        return redirect()->route('users.create')->with('message','Value Added Successfully.');
 
     }
     public function login()
@@ -72,6 +72,6 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->back()->with('message','Logout successful.');
+        return redirect()->route('login')->with('message1','Logout successful.');
     }
 }

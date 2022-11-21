@@ -3,7 +3,15 @@
 @section('content')
 <h1>Room_type</h1>
 
-<a href="{{route('room_type.Details')}}" class ="btn btn-success" >Enter details </a>
+<a href="{{route('room_type.Details')}}" class ="btn btn-success" > Add Rooms </a>
+
+@if(session()->has('message'))
+<p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
+
+@if(session()->has('error'))
+<p class="alert alert-danger">{{session()->get('error')}}</p>
+@endif
 
     <table class="table">
         <thead>
@@ -17,10 +25,10 @@
         </thead>
         <tbody>
 
-        @foreach($room_types as $data)
+        @foreach($room_types as $key=>$data)
 
         <tr>
-            <td>{{$data->id}}</td>
+            <td>{{$key + $room_types->firstItem()}}</td>
             <td>
             <img src="{{url('/uploads/'.$data->room_image)}}"style="height:80px; width:100px"alt="My Image">
             </td>
@@ -29,8 +37,8 @@
             
             <td>
                 <a href="" class="btn btn-outline-primary">Update</a>
-                <a href="" class="btn btn-outline-danger">Delete</a>
-                <a href="" class="btn btn-outline-success">View</a>
+                <a href="{{route('admin.room.delete',$data->id)}}" class="btn btn-outline-danger">Delete</a>
+                <a href="{{route('admin.room.view',$data->id)}}" class="btn btn-outline-success">View</a>
             </td>
         </tr>
         @endforeach
