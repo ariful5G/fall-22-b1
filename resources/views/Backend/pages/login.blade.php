@@ -33,6 +33,12 @@
 			</div>
 			<div class="card-body">
 
+		@if($errors->any())
+    	    @foreach($errors->all() as $message)
+        	<p class="alert alert-danger">{{$message}}</p>
+       		@endforeach
+       	@endif
+
              @if(session()->has('message'))
 			 <p class="alert alert-danger"> {{session()->get('message')}}</p>
 			 @endif 

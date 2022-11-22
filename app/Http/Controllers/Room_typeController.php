@@ -56,4 +56,32 @@ class Room_typeController extends Controller
         $room=Room_type::find($roomView);
         return view('backend.pages.room_types.view',compact('room'));
     }
+
+    public function roomEdit($roomEdit)
+    {
+        $room=Room_type::find($roomEdit);
+        return view('backend.pages.room_types.edit',compact('room'));
+    }
+    public function update(Request $request,$roomUpdate)
+    {
+        
+        $room=Room_type::find($roomUpdate); 
+        
+        $fileName=$room->image;
+
+        if($request->hasFile('image'))
+        {
+            // dd("true");
+            // generate name
+            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads',$fileName);
+        } 
+        $room->update([
+            'room_image'=>$fileName,
+            'name'=>$request->room_name,
+            'amount'=>$request->amount,  
+        ]);
+        return redirect()->route('room_type')->with('message','Update successfull.');
+
+    }
 }

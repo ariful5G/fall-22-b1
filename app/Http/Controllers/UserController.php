@@ -53,7 +53,10 @@ class UserController extends Controller
     }
     public function doLogin(Request $request)
     {
-
+        $request->validate([
+            'email'=> 'required|string|email:users',
+            'password'=>'required|string:users'
+        ]);
         $credentials=$request->except('_token');
         //dd($credentials);
     //    $credentials=$request->only(['email','password']);

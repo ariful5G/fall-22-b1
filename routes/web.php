@@ -54,6 +54,8 @@ Route::get('/roomtype/Details',[Room_typeController::class,'CreateForm'])->name(
 Route::post('/roomtype/store',[Room_typeController::class,'store'])->name('room_type.store');
 Route::get('room_type/delete/{roomDelete}',[Room_typeController::class,'roomdelete'])->name('admin.room.delete');
 Route::get('room_type/view/{roomView}',[Room_typeController::class,'roomView'])->name('admin.room.view');
+Route::get('room_type/edit/{roomEdit}',[Room_typeController::class,'roomEdit'])->name('admin.room.edit');
+Route::put('room_type/edit/{roomUpdate}',[Room_typeController::class,'Update'])->name('admin.room.update');
 
 Route::get('/Rooms',[RoomController::class,'vip'])->name('rooms');
 Route::get('/Booking',[BookingController::class,'list'])->name('booking');
