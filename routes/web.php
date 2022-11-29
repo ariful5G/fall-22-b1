@@ -26,7 +26,10 @@ use App\Http\Controllers\frontend\LandingpageController;
 */
 
 //route for frontend
-Route::get('/',[LandingpageController::class,'home']);
+Route::get('/',[LandingpageController::class,'home'])->name('website');
+Route::post('/Registration',[LandingpageController::class,'signup'])->name('registration');
+Route::post('/Login',[LandingpageController::class,'login'])->name('user.login');
+Route::get('/Logout',[LandingpageController::class,'logout'])->name('user.logout');
 
 
 
@@ -38,7 +41,7 @@ Route::get('/login',[UserController::class,'login'])->name('login');
 Route::post('/do-login',[UserController::class,'doLogin'])->name('do.login');
 Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
-Route::group(['middleware'=>'auth','prefix'=>'admin'],function (){
+Route::group(['middleware'=>['auth','CheckAdmin'],'prefix'=>'admin'],function (){
 
 Route::get('/User',[UserController::class,'list'])->name('user');
 Route::get('/user/create',[UserController::class,'createForm'])->name('users.create');

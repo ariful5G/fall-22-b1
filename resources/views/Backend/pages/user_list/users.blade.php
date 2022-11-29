@@ -10,7 +10,7 @@
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">fast_name</th>
+            <th scope="col">first_name</th>
             <th scope="col">last_name</th>
             <th scope="col">email</th>
             <th scope="col">password</th>
@@ -27,7 +27,7 @@
     <!-- <td>
         <img src="{{$data->image}}" alt="Image">
     </td> -->
-    <td>{{$data->fast_name}}</td>
+    <td>{{$data->first_name}}</td>
     <td>{{$data->last_name}}</td>
     <td>{{$data->email}}</td>
     <td>{{$data->password}}</td>

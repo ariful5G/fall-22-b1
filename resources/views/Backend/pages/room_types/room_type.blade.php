@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Room_type</h1>
+<h1>Room_Type</h1>
 
 <a href="{{route('room_type.Details')}}" class ="btn btn-success" > Add Rooms </a>
 
@@ -23,10 +23,9 @@
             <th scope="col">Action</th>
         </tr>
         </thead>
+
         <tbody>
-
         @foreach($room_types as $key=>$data)
-
         <tr>
             <td>{{$key + $room_types->firstItem()}}</td>
             <td>

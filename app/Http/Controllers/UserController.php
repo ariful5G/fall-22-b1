@@ -35,7 +35,7 @@ class UserController extends Controller
 
         User::create([
             //database column name => input field name
-                'fast_name'=>$request->FirstName,
+                'first_name'=>$request->FirstName,
                 'last_name'=>$request->LastName,
                 'email'=>$request->email,
                 'password'=>$request->password,

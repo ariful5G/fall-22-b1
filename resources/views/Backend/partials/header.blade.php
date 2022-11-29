@@ -6,7 +6,7 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="{{route('logout')}}">{{auth()->user()->last_name}} | Logout</a>
+      <a class="nav-link px-3" href="{{route('logout')}}">{{auth()->user()->first_name}} | Logout</a>
     </div>
   </div>
 </header>
