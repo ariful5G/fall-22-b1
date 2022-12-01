@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\User;
+use App\Models\Room_type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -11,7 +12,9 @@ class LandingpageController extends Controller
 {
   public function home()
   {
-    return view('frontend.webside');
+    $room=Room_type::first();
+    // dd($room);
+    return view('frontend.webside',compact('room'));
   }
   public function signup(request $request)
   {

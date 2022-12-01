@@ -8,6 +8,10 @@ class AmenitiesController extends Controller
 {
     public function list()
     {
-        return view("backend.pages.amenities");
+        return view("backend.pages.amenities.list");
+    }
+    public function create()
+    {
+        return view("backend.pages.amenities.create");
     }
 }

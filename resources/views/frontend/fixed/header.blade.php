@@ -12,7 +12,7 @@
 				<li class="nav-item"><a href='rooms.html' class="nav-link">Rooms</a></li>
 				<li class="nav-item"><a href='restaurant.html' class="nav-link">Our Service</a></li>
 				@auth
-				<li class="nav-item"><a href="{{route('user.login')}}" class="nav-link">{{auth()->user()->first_name}} {{auth()->user()->last_name}}'s Account</a></li>
+				<li class="nav-item"><a href="{{route('user.login')}}" class="nav-link">{{auth()->user()->first_name}}'s Account</a></li>
 				<li class="nav-item"><a href="{{route('user.logout')}}" class="nav-link">Logout</a></li>
 				@else
 				<li class="nav-item"><a href='blog.html' class="nav-link" data-toggle="modal" data-target="#exampleModal">Signup</a></li>
@@ -41,7 +41,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username/Email" name="email">
+						<input type="text" class="form-control" placeholder="Email" name="email">
 
 					</div>
 					<div class="input-group form-group">
@@ -56,7 +56,7 @@
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-primary">Login</button>
 					</div>
-					<p>Don't have any account? Signup</p>
+					<p>You should have an account otherwise Signup</p>
 
 				</form>
 

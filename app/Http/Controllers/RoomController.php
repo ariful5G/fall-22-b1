@@ -8,6 +8,10 @@ class RoomController extends Controller
 {
     public function vip()
     {
-        return view("backend.pages.rooms");
+        return view("backend.pages.rooms.list");
+    }
+    public function createform()
+    {
+        return view('backend.pages.rooms.create');
     }
 }

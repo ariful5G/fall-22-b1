@@ -14,6 +14,8 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReportsController;
 
 use App\Http\Controllers\frontend\LandingpageController;
+use App\Http\Controllers\HotelController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +38,7 @@ Route::get('/Logout',[LandingpageController::class,'logout'])->name('user.logout
 
 
 
+
 //route for backend
 Route::get('/login',[UserController::class,'login'])->name('login');
 Route::post('/do-login',[UserController::class,'doLogin'])->name('do.login');
@@ -49,8 +52,14 @@ Route::post('/User/store',[UserController::class,'store'])->name('user.store');
 
 Route::get('/admin',[AdminController::class,'home'])->name('admin');
 Route::get('/',[MasterController::class,'home'])->name('dashboard');
-Route::get('/Hotel',[Hotel::class,'Home'])->name('hotel');
+
+
+Route::get('/Hotel',[HotelController::class,'Home'])->name('hotel');
+Route::get('/Hotel/create',[HotelController::class,'create'])->name('hotel.create');
+
+
 Route::get('/Guest',[GuestController::class,'list'])->name('guest');
+Route::get('/Guest/create',[GuestController::class,'create'])->name('guest.create');
 
 Route::get('/Room_type',[Room_typeController::class,'list'])->name('room_type');
 Route::get('/roomtype/Details',[Room_typeController::class,'CreateForm'])->name('room_type.Details');
@@ -61,8 +70,19 @@ Route::get('room_type/edit/{roomEdit}',[Room_typeController::class,'roomEdit'])-
 Route::put('room_type/edit/{roomUpdate}',[Room_typeController::class,'Update'])->name('admin.room.update');
 
 Route::get('/Rooms',[RoomController::class,'vip'])->name('rooms');
+Route::get('/Rooms/create',[RoomController::class,'createform'])->name('rooms.create');
+Route::post('/room/store',[RoomController::class,'store'])->name('room.store');
+// Route::get('room/delete/{roomDelete}',[RoomController::class,'roomdelete'])->name('room.delete');
+// Route::get('room/view/{roomView}',[RoomController::class,'roomView'])->name('room.view');
+// Route::get('room/edit/{roomEdit}',[RoomController::class,'roomEdit'])->name('room.edit');
+// Route::put('room/edit/{roomUpdate}',[RoomController::class,'Update'])->name('room.update');
+
+
 Route::get('/Booking',[BookingController::class,'list'])->name('booking');
+
 Route::get('/Amenities',[AmenitiesController::class,'list'])->name('amenities');
+Route::get('/Amenities/create',[AmenitiesController::class,'create'])->name('amenities.create');
+
 Route::get('/Payment',[PaymentController::class,'list'])->name('payment');
 Route::get('/Reports',[ReportsController::class,'list'])->name('reports');
 
