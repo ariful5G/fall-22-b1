@@ -7,19 +7,27 @@
      @csrf
      <div class="form-group">
             <label for="name">Enter Name</label>
-            <input type="text"name="name"required class="form-control" id="name" placeholder="Enter Name">
+            <input type="text"name="name"required class="form-control" placeholder="Enter Name">
     </div>
     <div class= "form-group">
         <label for="email">Enter Email</label>
-        <input type="email" name="email" class="form-control" id="price" placeholder="Enter Email">
+        <input type="email" name="email" class="form-control" placeholder="Enter Email">
+    </div>
+    <div class= "form-group">
+        <label for="check in">Check In Date</label>
+        <input type="date" name="check_in" class="form-control" placeholder="Enter Check In Date">
+    </div>
+    <div class= "form-group">
+        <label for="check out">Check Out Date</label>
+        <input type="date" name="check_out" class="form-control" placeholder="Enter Check Out Date">
     </div>
     <div class= "form-group">
         <label for="guest"> No of Guest</label>
-        <input type="number" name="guest" class="form-control" id="price" placeholder="Number of guest">
+        <input type="number" name="guest" class="form-control" placeholder="Number of guest">
     </div>
     <div class= "form-group">
         <label for="days"> No of Days</label>
-        <input type="number" name="days" class="form-control" id="price" placeholder="Number of Days">
+        <input type="number" name="days" class="form-control" placeholder="Number of Days">
     </div>
     <div class= "form-group">
         <label for="amount">Total Amount</label>
@@ -35,28 +43,22 @@
     </div>
     <div class= "form-group">
         <label for="contact no">Enter Contact No</label>
-        <input type="number" name="contact" class="form-control" id="price" placeholder="Enter Contact No">
+        <input type="number" name="contact" class="form-control"placeholder="Enter Contact No">
     </div>
     <div class= "form-group">
         <label for="address">Enter Address</label>
-        <input type="text" name="address" class="form-control" id="price" placeholder="Enter Address">
-    </div><br>
+        <input type="text" name="address" class="form-control" placeholder="Enter Address">
+    </div>
     <div class= "form-group">
         <label for="status">Enter Status</label>
-        <input type="text" name="status" class="form-control" id="price" placeholder="Enter status">
-    </div><br>
-    <div>
-        <label for="image">Upload Image</label>
-        <input type="file" name="image" class="form-control"id="image">
-   </div>
-   <div><br>
+        <input type="text" name="status" class="form-control" placeholder="Enter status">
+    </div>
+   <div>
         <button type="submit" class="btn btn-primary">Submit</button>
    <input type="reset" class="btn btn-secondary">
    </div>
 
 </form>
-
-
 
 
 @endsection

@@ -24,22 +24,10 @@ class UserController extends Controller
     //    dd($request->all());
         $request->validate(['email'=>'required|unique:users,email',]);
 
-        $fileName=null;
-        if($request->hasFile('image'))
-        {
-            // dd("true");
-            // generate name
-            $fileName=date('Ymdhis').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('/uploads',$fileName);
-        } 
-
         User::create([
             //database column name => input field name
-                'first_name'=>$request->FirstName,
-                'last_name'=>$request->LastName,
                 'email'=>$request->email,
                 'password'=>$request->password,
-                'image'=>$fileName,
         ]);
 
 

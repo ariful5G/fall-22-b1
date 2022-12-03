@@ -6,19 +6,34 @@
 <form method='GET' action="" enctype="multipart/form-data">
      @csrf
      <div class="form-group">
-            <label for="room_type">Select Room Types</label>
-            <input type="text"name="room_type"required class="form-control" id="name" placeholder="Enter room type">
+            <label for="room">Room Name</label>
+            <input type="text"name="room"required class="form-control" id="name" placeholder="Enter Room Name">
     </div>
     <div class= "form-group">
-        <label for="amount">Amount</label>
-        <input type="number" name="amount" class="form-control" id="price" placeholder="Enter Amount">
+        <label for="room id">Room ID</label>
+        <input type="number" name="room_id" class="form-control" placeholder="Room id">
     </div>
+  
     <div class="form-group">
             <label for="room_no">Room No</label>
             <input type="text"name="room_no"required class="form-control" id="name" placeholder="Enter room no">
     </div>
+     <div class="form-group">
+            <label for="room_type">Select Room Types</label>
+            <input type="text"name="room_type"required class="form-control" id="name" placeholder="Enter room type">
+    </div>
+ 
+    <div class= "form-group">
+        <label for="amount">Amount</label>
+        <input type="number" name="amount" class="form-control" id="price" placeholder="Enter Amount">
+    </div>
+    <div class= "form-group">
+        <label for="amenities id">Amenities ID</label>
+        <input type="number" name="amenities_id" class="form-control" placeholder="Amenities id">
+    </div>
+  
     <div class="form-group">
-            <label for="room_description">Room Description</label>
+            <label for="amenities_description">Amenities Description</label>
             <input type="text"name="description"required class="form-control" id="name" placeholder="Enter Description">
     </div>
     <div class= "form-group">

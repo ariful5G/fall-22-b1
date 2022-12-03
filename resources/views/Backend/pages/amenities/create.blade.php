@@ -6,18 +6,14 @@
 <form method='GET' action="" enctype="multipart/form-data">
      @csrf
      <div class="form-group">
-            <label for="name">Enter Name</label>
-            <input type="text"name="room_name"required class="form-control" id="name" placeholder="Enter room type">
-    </div><br>
-    <div class= "form-group">
-        <label for="amount">Amount</label>
-        <input type="number" name="amount" class="form-control" id="price" placeholder="Enter Amount">
-    </div><br>
-    <div>
-        <label for="image">Upload Image</label>
-        <input type="file" name="image" class="form-control"id="image">
-   </div>
-   <div><br>
+            <label for="name">Name</label>
+            <input type="text"name="name"required class="form-control" placeholder="Enter Amenities Name">
+    </div>
+    <div class="form-group">
+            <label for="name">Status</label>
+            <input type="text"name="status"required class="form-control" placeholder="Enter Status">
+    </div>
+    
         <button type="submit" class="btn btn-primary">Submit</button>
    <input type="reset" class="btn btn-secondary">
    </div>

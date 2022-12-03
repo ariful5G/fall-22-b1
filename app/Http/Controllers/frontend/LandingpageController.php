@@ -18,13 +18,15 @@ class LandingpageController extends Controller
   }
   public function signup(request $request)
   {
-    //    dd($request->all());
+    //dd($request->all());
     User::create([
       //database column name => input field name
-      'first_name' => $request->FirstName,
-      'last_name' => $request->LastName,
+      'name' => $request->name,
       'email' => $request->email,
       'password' => bcrypt($request->password),
+      'contact' => $request->contact,
+      'address' => $request->address,
+      'gender' => $request->gender,
       'role' => 'user'
     ]);
     Alert::success('Registration Successfull');

@@ -12,11 +12,11 @@
 				<li class="nav-item"><a href='rooms.html' class="nav-link">Rooms</a></li>
 				<li class="nav-item"><a href='restaurant.html' class="nav-link">Our Service</a></li>
 				@auth
-				<li class="nav-item"><a href="{{route('user.login')}}" class="nav-link">{{auth()->user()->first_name}}'s Account</a></li>
+				<li class="nav-item"><a href="{{route('user.login')}}" class="nav-link">{{auth()->user()->name}}'s Account</a></li>
 				<li class="nav-item"><a href="{{route('user.logout')}}" class="nav-link">Logout</a></li>
 				@else
-				<li class="nav-item"><a href='blog.html' class="nav-link" data-toggle="modal" data-target="#exampleModal">Signup</a></li>
-				<li class="nav-item"><a href='contact.html' class="nav-link" class="btn btn-primary" data-toggle="modal" data-target="#Modal">Login</a></li>
+				<li class="nav-item"><a href='blog.html' class="nav-link" data-toggle="modal" data-target="#registration">Signup</a></li>
+				<li class="nav-item"><a href='contact.html' class="nav-link" class="btn btn-primary" data-toggle="modal" data-target="#login">Login</a></li>
 				@endauth
 			</ul>
 		</div>
@@ -25,7 +25,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -37,26 +37,28 @@
 			<div class="modal-body">
 				<form action="{{route('user.login')}}" method="post">
 					@csrf
+					<label>Email:</label>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Email" name="email">
+						<input type="text" class="form-control" placeholder="Please Enter Your Email" name="email">
 
 					</div>
+					<label>Password:</label>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password" name="password">
+						<input type="password" class="form-control" placeholder="Please Enter Your Password" name="password">
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
+						<input type="checkbox">Remember
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary">Login</button>
+						<button type="submit" class="btn btn-primary">Login</button>	
 					</div>
-					<p>You should have an account otherwise Signup</p>
+					<p>Don't have any account?Signup</p>
 
 				</form>
 
@@ -68,11 +70,11 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Do Registration</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Create your account or Signup</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -84,18 +86,18 @@
 					@if(session()->has('message'))
 					<p class="alert alert-success">{{session()->get('message')}}</p>
 					@endif
-					First Name: <input type="text" name="FirstName" class="form-control"> <br>
-					Last Name: <input type="text" name="LastName" class="form-control"> <br>
-					Email: <input type="email" name="email" class="form-control" required> <br>
-					password: <input type="password" name="password" class="form-control" min="4"><br>
-					<br>
-					Date of Birth: <input type="date" name="birthday"><br><br>
+					Name: <input type="text" name="name" class="form-control" placeholder="Enter Your Name">
+					Email: <input type="email" name="email" class="form-control" required placeholder="Enter Your Email">
+					Password: <input type="password" name="password" class="form-control" min="4" placeholder="Enter Your Password">
+					Contact No: <input type="number" name="contact" class="form-control" placeholder="Enter Your Contact No">
+					Address: <input type="text" name="address" class="form-control" placeholder="Enter Your Address">
 					Gender:<br>
-					<input type="radio" name="Gender" value="Male">Male<br>
-					<input type="radio" name="Gender" value="Female">Female<br>
-					<input type="radio" name="Gender" value="Other">Other<br>
+					<input type="radio" name="gender" value="Male">Male<br>
+					<input type="radio" name="gender" value="Female">Female<br>
+					<input type="radio" name="gender" value="Other">Other<br>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-primary">Register</button>
+						<button type="reset" class="btn btn-secondary">Reset</button>
 					</div>
 				</form>
 			</div>

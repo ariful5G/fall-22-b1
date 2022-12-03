@@ -148,14 +148,14 @@ a {
         margin: 0 0 20px
     }
 }</style>
-                                <script type='text/javascript' src=''></script>
-                                <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
-                                <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
-                                <script type='text/javascript'></script> 
-                            <div class="demo">
+<script type='text/javascript' src=''></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+<script type='text/javascript'></script> 
+ <div class="demo">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <div class="pricingTable">
                     <div class="pricingTable-header">
                         <i class="fa fa-adjust"></i>
@@ -172,12 +172,12 @@ a {
                         </ul>
                     </div>
                     <div class="pricingTable-signup">
-                        <a href="#">sign up</a>
+                        <a href="#">Book Now</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <div class="pricingTable green">
                     <div class="pricingTable-header">
                         <i class="fa fa-briefcase"></i>
@@ -194,11 +194,11 @@ a {
                         </ul>
                     </div>
                     <div class="pricingTable-signup">
-                        <a href="#">sign up</a>
+                        <a href="#">Book Now</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <div class="pricingTable blue">
                     <div class="pricingTable-header">
                         <i class="fa fa-diamond"></i>
@@ -215,11 +215,11 @@ a {
                         </ul>
                     </div>
                     <div class="pricingTable-signup">
-                        <a href="#">sign up</a>
+                        <a href="#">Book Now</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <div class="pricingTable red">
                     <div class="pricingTable-header">
                         <i class="fa fa-cube"></i>
@@ -236,10 +236,53 @@ a {
                         </ul>
                     </div>
                     <div class="pricingTable-signup">
-                        <a href="#">sign up</a>
+                        <a href="#">Book Now</a>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="pricingTable red">
+                    <div class="pricingTable-header">
+                        <i class="fa fa-cube"></i>
+                        <div class="price-value"> $40.00 <span class="month">per month</span> </div>
+                    </div>
+                    <h3 class="heading">Extra</h3>
+                    <div class="pricing-content">
+                        <ul>
+                            <li><b>80GB</b> Disk Space</li>
+                            <li><b>80</b> Email Accounts</li>
+                            <li><b>80GB</b> Monthly Bandwidth</li>
+                            <li><b>25</b> subdomains</li>
+                            <li><b>30</b> Domains</li>
+                        </ul>
+                    </div>
+                    <div class="pricingTable-signup">
+                        <a href="#">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="pricingTable red">
+                    <div class="pricingTable-header">
+                        <i class="fa fa-cube"></i>
+                        <div class="price-value"> $40.00 <span class="month">per month</span> </div>
+                    </div>
+                    <h3 class="heading">Extra</h3>
+                    <div class="pricing-content">
+                        <ul>
+                            <li><b>80GB</b> Disk Space</li>
+                            <li><b>80</b> Email Accounts</li>
+                            <li><b>80GB</b> Monthly Bandwidth</li>
+                            <li><b>25</b> subdomains</li>
+                            <li><b>30</b> Domains</li>
+                        </ul>
+                    </div>
+                    <div class="pricingTable-signup">
+                        <a href="#">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>

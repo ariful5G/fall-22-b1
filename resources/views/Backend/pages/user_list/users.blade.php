@@ -10,37 +10,26 @@
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">first_name</th>
-            <th scope="col">last_name</th>
-            <th scope="col">email</th>
-            <th scope="col">password</th>
-            <th scope="col">image</th>
-            <th scope="col">Action</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Passord</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">Address</th>
+            <th scope="col">Gender</th>
         </tr>
         </thead>
         <tbody>
 
-@foreach($user_list as $key=>$data)
+@foreach($user_list as $data)
 
 <tr>
-    <th scope="row">{{$key + $user_list->firstItem()}}
-    <!-- <td>
-        <img src="{{$data->image}}" alt="Image">
-    </td> -->
-    <td>{{$data->first_name}}</td>
-    <td>{{$data->last_name}}</td>
+    <th scope="row">{{$data->id}}</th>
+    <td>{{$data->name}}</td>
     <td>{{$data->email}}</td>
     <td>{{$data->password}}</td>
-    <td>
-        <img src="{{url('/uploads/'.$data->image)}}"style="height:60px; width:70px"alt="My Image">
-        
-    </td>
-
-    <td>
-        <a href="" class="btn btn-outline-primary">Update</a>
-        <a href="" class="btn btn-outline-danger">Delete</a>
-        <a href="" class="btn btn-outline-success">View</a>
-    </td>
+    <td>{{$data->contact}}</td>
+    <td>{{$data->address}}</td>
+    <td>{{$data->gender}}</td>
 </tr>
 @endforeach
 </tbody>

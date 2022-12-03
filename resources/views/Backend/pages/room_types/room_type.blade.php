@@ -3,7 +3,7 @@
 @section('content')
 <h1>Room_Type</h1>
 
-<a href="{{route('room_type.Details')}}" class ="btn btn-success" > Add Rooms </a>
+<a href="{{route('room_type.Details')}}" class ="btn btn-success" > Add room_type </a>
 
 @if(session()->has('message'))
 <p class="alert alert-success">{{session()->get('message')}}</p>
@@ -37,7 +37,7 @@
             <td>
                 <a href="{{route('admin.room.edit',$data->id)}}" class="btn btn-outline-primary">Edit</a>
                 <a href="{{route('admin.room.delete',$data->id)}}" class="btn btn-outline-danger">Delete</a>
-                <a href="{{route('admin.room.view',$data->id)}}" class="btn btn-outline-success">View</a>
+                <a href="{{route('admin.room.view',$data->id)}}" class="btn btn-outline-success">View Room</a>
             </td>
         </tr>
         @endforeach

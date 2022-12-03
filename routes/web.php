@@ -46,12 +46,13 @@ Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
 Route::group(['middleware'=>['auth','CheckAdmin'],'prefix'=>'admin'],function (){
 
-Route::get('/User',[UserController::class,'list'])->name('user');
+Route::get('/',[MasterController::class,'home'])->name('dashboard');
+
+Route::get('/user',[UserController::class,'list'])->name('user');
 Route::get('/user/create',[UserController::class,'createForm'])->name('users.create');
-Route::post('/User/store',[UserController::class,'store'])->name('user.store');
+Route::post('/user/store',[UserController::class,'store'])->name('user.store');
 
 Route::get('/admin',[AdminController::class,'home'])->name('admin');
-Route::get('/',[MasterController::class,'home'])->name('dashboard');
 
 
 Route::get('/Hotel',[HotelController::class,'Home'])->name('hotel');
