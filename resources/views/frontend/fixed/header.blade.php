@@ -8,9 +8,9 @@
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a  href='index.html' class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="" class="nav-link">Rooms</a></li>
 				<li class="nav-item"><a href='about.html' class="nav-link">About</a></li>
-				<li class="nav-item"><a href='rooms.html' class="nav-link">Rooms</a></li>
-				<li class="nav-item"><a href='restaurant.html' class="nav-link">Our Service</a></li>
+				<li class="nav-item"><a href='restaurant.html' class="nav-link">Contact</a></li>
 				@auth
 				<li class="nav-item"><a href="{{route('user.login')}}" class="nav-link">{{auth()->user()->name}}'s Account</a></li>
 				<li class="nav-item"><a href="{{route('user.logout')}}" class="nav-link">Logout</a></li>

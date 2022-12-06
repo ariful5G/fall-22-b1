@@ -7,6 +7,7 @@
 @if(session()->has('message'))
 <p class="alert alert-success">{{session()->get('message')}}</p>
 @endif
+
 <form method='POST' action="{{route('admin.room.update',$room->id)}}" enctype="multipart/form-data">
     @method('put')
      @csrf

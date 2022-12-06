@@ -22,18 +22,29 @@
         </thead>
 
         <tbody>
-
+        @foreach($room as $data)
         <tr>
-            
-            
-            <!-- <td>
-                <a href="" class="btn btn-outline-primary">Edit</a>
-                <a href="" class="btn btn-outline-danger">Delete</a>
-                <a href="" class="btn btn-outline-success">View</a>
-            </td> -->
+            <td>{{$data->id}}</td>
+            <td>
+            <img src="{{url('/uploads/'.$data->room_image)}}"style="height:80px; width:100px"alt="My Image">
+            </td>
+            <td>{{$data->room_name}}</td>
+            <td>{{$data->room_id}}</td>
+            <td>{{$data->room_no}}</td>
+            <td>{{$data->room_type}}</td>
+            <td>{{$data->amount}}</td>
+            <td>{{$data->amenities_id}}</td>
+            <td>{{$data->amenities}}</td>
+            <td>{{$data->amenities_description}}</td>
+            <td>{{$data->accomodate}}</td>
+            <td>
+                <a href="{{route('room.edit',$data->id)}}" class="btn btn-outline-primary">Edit</a>
+                <a href="{{route('room.delete',$data->id)}}" class="btn btn-outline-danger">Delete</a>
+                <a href="{{route('room.view',$data->id)}}" class="btn btn-outline-success">View</a>
+            </td>
         </tr>
 
-
+     @endforeach
     </tbody>
     
     </table>

@@ -66,7 +66,6 @@ class Room_typeController extends Controller
     {
         
         $room=Room_type::find($roomUpdate); 
-        
         $fileName=$room->image;
 
         if($request->hasFile('image'))

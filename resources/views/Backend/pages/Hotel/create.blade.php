@@ -3,11 +3,15 @@
 @section('content')
 <h1>Hotel</h1>
 
-<form method='GET' action="" enctype="multipart/form-data">
+@if(session()->has('message'))
+<p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
+
+<form method='post' action="{{route('hotel.store')}}">
      @csrf
      <div class="form-group">
             <label for="name">Enter Name</label>
-            <input type="text"name="name"required class="form-control" id="name" placeholder="Enter Hotel Name">
+            <input type="text"name="name" class="form-control" id="name" placeholder="Enter Hotel Name">
     </div>
     <div class= "form-group">
         <label for="email">Enter Email</label>
@@ -25,7 +29,7 @@
         <label for="city">Enter City</label>
         <input type="text" name="city" class="form-control" id="price" placeholder="Enter City">
     </div>
-   <div>
+   <div><br>
         <button type="submit" class="btn btn-primary">Submit</button>
    <input type="reset" class="btn btn-secondary">
    </div>

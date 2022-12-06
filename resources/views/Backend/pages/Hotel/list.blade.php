@@ -16,15 +16,21 @@
         </tr>
         </thead>
         <tbody>
+            @foreach($hotel as $data)
         <tr>
-            
-            <!-- <td>
-                <a href="" class="btn btn-outline-primary">Edit</a>
-                <a href="" class="btn btn-outline-danger">Delete</a>
-                <a href="" class="btn btn-outline-success">View</a>
-            </td> -->
+            <td>{{$data->id}}</td>
+            <td>{{$data->name}}</td>
+            <td>{{$data->email}}</td>
+            <td>{{$data->address}}</td>
+            <td>{{$data->contact}}</td>
+            <td>{{$data->city}}</td>
+            <td>
+                <a href="{{route('admin.hotel.edit',$data->id)}}" class="btn btn-outline-primary">Edit</a>
+                <a href="{{route('hotelinfo.delete',$data->id)}}" class="btn btn-outline-danger">Delete</a>
+                <a href="{{route('admin.hotel.view',$data->id)}}" class="btn btn-outline-success">View</a>
+            </td>
         </tr>
-   
+       @endforeach
         </tbody>
     </table>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\User;
+use App\Models\Booking;
 use App\Models\Room_type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,9 +13,9 @@ class LandingpageController extends Controller
 {
   public function home()
   {
-    $room=Room_type::first();
-    // dd($room);
-    return view('frontend.webside',compact('room'));
+    $rooms=Room_type::all();
+    // dd($rooms);
+    return view('frontend.pages.home',compact('rooms'));
   }
   public function signup(request $request)
   {
@@ -49,4 +50,36 @@ class LandingpageController extends Controller
     Alert::success('Logout', 'Logout Successful');
     return redirect()->back();
   }
+  public function roomView($roomView)
+    {
+        $rooms=Room_type::all();
+        $room=Room_type::find($roomView);
+        return view('frontend.pages.room_view',compact('room','rooms'));
+    }
+    public function viewBookingForm($room_id)
+    {
+       $room=Room_type::find($room_id);
+        return view('frontend.pages.booking_form',compact('room'));
+    }
+    public function store(Request $request,$room_id)
+    {
+
+        // create the order
+        Booking::create([
+           //'user_id'=>auth()->user()->id,
+           //'room_id'=>$room_id,
+           'name'=>$request->name,
+           'email'=>$request->email,
+           'check_in_date'=>$request->check_in,
+           'check_out_date'=>$request->check_out,
+           'guest'=>$request->guest,
+           'days'=>$request->days,
+           'contact'=>$request->contact,
+           'address'=>$request->address,
+           'status'=>$request->status,
+        ]);
+      
+        return redirect()->route('website');
+
+    }
 }

@@ -1,6 +1,6 @@
 
 
-@extends('master')
+@extends('frontend.webside')
 
 @section('content')
 
@@ -130,7 +130,7 @@
                             </a></div>
                     </div>
                     <div class="input-group mb-3 w-75 mx-auto">
-                        <button class="btn addBtn form-control" aria-describedby="myBtn">Book Now</button>
+                        <a href="{{route('booking.form',$room->id)}}" class="btn addBtn form-control" aria-describedby="myBtn">Book Now</a>
                     </div>
                     <div class="bg-b"></div>
                 </div>

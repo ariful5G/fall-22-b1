@@ -3,7 +3,7 @@
 @section('content')
 <h1>Room Details</h1>
 
-<form method='GET' action="" enctype="multipart/form-data">
+<form method='post' action="{{route('room.store')}}" enctype="multipart/form-data">
      @csrf
      <div class="form-group">
             <label for="room">Room Name</label>
@@ -16,7 +16,7 @@
   
     <div class="form-group">
             <label for="room_no">Room No</label>
-            <input type="text"name="room_no"required class="form-control" id="name" placeholder="Enter room no">
+            <input type="number"name="room_no"required class="form-control" id="name" placeholder="Enter room no">
     </div>
      <div class="form-group">
             <label for="room_type">Select Room Types</label>

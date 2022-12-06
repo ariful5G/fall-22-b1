@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
     public function list()
     {
-        return view("backend.pages.booking");
+        $room=Booking::all();
+
+        return view('backend.pages.booking',compact('room'));
     }
 }
