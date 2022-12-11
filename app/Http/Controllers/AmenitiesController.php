@@ -9,7 +9,8 @@ class AmenitiesController extends Controller
 {
     public function list()
     {
-        return view("backend.pages.amenities.list");
+        $amenity= Amenity::all();
+        return view("backend.pages.amenities.list",compact('amenity'));
     }
     public function create()
     {
@@ -25,5 +26,27 @@ class AmenitiesController extends Controller
         ]);
     
         return redirect()->back()->with('message','amenity added successfully.');
+    }
+    public function amenitydelete($amenityDelete)
+    {
+        
+        Amenity::find($amenityDelete)->delete();
+        return redirect()->back();
+    } 
+    public function amenityEdit($amenityEdit)
+    {
+        $amenity=Amenity::find($amenityEdit);
+        return view('backend.pages.amenities.edit',compact('amenity'));
+    }
+    public function amenityUpdate(Request $request,$amenityUpdate)
+    {
+        
+        $amenity=Amenity::find($amenityUpdate); 
+
+        $amenity->update([
+            'name'=>$request->name,  
+            'status'=>$request->status,    
+        ]);
+        return redirect()->route('amenities');
     }
 }

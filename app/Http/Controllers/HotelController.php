@@ -10,7 +10,7 @@ class HotelController extends Controller
     public function Home()
     {
         $hotel=Hotel::all();
-        return view("backend.pages.Hotel.list",compact('hotel'));
+        return view("backend.pages.hotel.list",compact('hotel'));
     }
     public function create()
     {
@@ -19,11 +19,10 @@ class HotelController extends Controller
     public function store(Request $request)
     {
         Hotel::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'address'=>$request->address,
-            'contact'=>$request->contact,
-            'city'=>$request->city
+            'Email'=>$request->email,  
+            'Address'=>$request->address,  
+            'Contact'=>$request->contact,  
+            'Website'=>$request->website,
             
         ]);
         return redirect()->back()->with('message','Data added successfully.');
@@ -42,13 +41,11 @@ class HotelController extends Controller
     {
         
         $hotel=Hotel::find($hotelUpdate); 
-
         $hotel->update([
-            'name'=>$request->name,
-            'email'=>$request->email,  
-            'address'=>$request->address,  
-            'contact'=>$request->contact,  
-            'city'=>$request->city,  
+            'Email'=>$request->email,  
+            'Address'=>$request->address,  
+            'Contact'=>$request->contact,  
+            'Website'=>$request->website,  
         ]);
         return redirect()->route('hotel')->with('message','Update successfull.');
 
@@ -56,6 +53,6 @@ class HotelController extends Controller
     public function hotelView($hotelView)
     {
         $hotel=Hotel::find($hotelView);
-        return view('backend.pages.hotel.hotel_view',compact('hotel'));
+        return view('backend.pages.hotel.sk',compact('hotel'));
     }
 }

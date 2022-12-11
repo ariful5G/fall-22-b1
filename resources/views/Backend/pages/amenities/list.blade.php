@@ -13,12 +13,18 @@
             <th scope="col">Action</th>
         </tr>
         </thead>
-        <tbody>
-          <!-- <td>
-                <a href="" class="btn btn-outline-primary">Edit</a>
-                <a href="" class="btn btn-outline-danger">Delete</a>
-                <a href="" class="btn btn-outline-success">View</a>
-            </td> -->
+    <tbody>
+        @foreach($amenity as $data)
+        <tr>
+            <td>{{$data->id}}</td>
+            <td>{{$data->name}}</td>
+            <td>{{$data->status}}</td>
+            <td>
+                <a href="{{route('admin.amenity.edit',$data->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('amenity.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+        </td>
+            @endforeach
+       </tr>
         </tbody>
     </table>
 

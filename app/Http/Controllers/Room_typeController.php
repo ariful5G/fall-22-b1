@@ -10,11 +10,11 @@ class Room_typeController extends Controller
     public function list()
     {
         $room_types=Room_type::paginate(4);
-        return view('backend.pages.room_types.Room_type', compact('room_types'));
+        return view('backend.pages.room_types.list', compact('room_types'));
     }
     public function CreateForm()
     {
-        return view('backend.pages.room_types.list');
+        return view('backend.pages.room_types.create');
     }
     public function store(Request $request)
 

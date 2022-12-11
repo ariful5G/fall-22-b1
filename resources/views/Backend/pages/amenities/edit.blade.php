@@ -1,11 +1,11 @@
 @extends('master')
 
 @section('content')
-<h1>Amenities</h1>
+<h1>Amenities Update</h1>
 
-<form method='post' action="{{route('amenities.store')}}" enctype="multipart/form-data">
+<form method='post' action="{{route('admin.amenity.update',$amenity->id)}}">
      @csrf
-
+@method('put')
      <div class="form-group">
         <label for="name">Amenities Name</label>
         <select name="name" id="" class="form-control">
@@ -23,7 +23,7 @@
             </select>
         </div>
     
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Update</button>
    <input type="reset" class="btn btn-secondary">
    </div>
 

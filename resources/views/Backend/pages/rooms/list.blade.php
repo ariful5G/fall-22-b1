@@ -8,7 +8,7 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Room image</th>
-            <th scope="col">Name</th>
+            <th scope="col">Room Name</th>
             <th scope="col">Room Id</th>
             <th scope="col">Room No</th>
             <th scope="col">Room Type</th>

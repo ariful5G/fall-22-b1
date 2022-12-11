@@ -123,11 +123,11 @@
                             <li class="nav-item h4"><a href="#" class="nav-link text-dark"><i class="fa fa-rss "></i>
                             {{$room->amount}} .BDT</a></li>
                         </ul>
-                        <div class="link-b"><a class="btn btn-primary btn-twitter btn-sm" href="#"> <i
-                                    class="fa fa-twitter"></i> </a> <a class="btn btn-danger btn-sm" rel="publisher"
-                                                                       href="#"> <i class="fa fa-instagram"></i> </a> <a
-                                class="btn btn-primary btn-sm" rel="publisher" href="#"> <i class="fa fa-facebook"></i>
-                            </a></div>
+                        <div class="link-b">
+                            <a class="btn btn-primary btn-twitter btn-sm" href="#"> <i class="fa fa-twitter"></i> </a> 
+                            <a class="btn btn-danger btn-sm" rel="publisher"href="#"> <i class="fa fa-instagram"></i> </a> 
+                            <a class="btn btn-primary btn-sm" rel="publisher" href="#"> <i class="fa fa-facebook"><i></a>
+                        </div>
                     </div>
                     <div class="input-group mb-3 w-75 mx-auto">
                         <button class="btn addBtn form-control" aria-describedby="myBtn">Book Now</button>

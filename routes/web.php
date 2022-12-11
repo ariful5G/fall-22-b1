@@ -1,20 +1,21 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\MasterController;
 use App\Http\Controllers\Hotel;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\GuestController;
-use App\Http\Controllers\Room_typeController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\MasterController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\AmenitiesController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\AmenitiesController;
 
+use App\Http\Controllers\Room_typeController;
+use App\Http\Controllers\frontend\StatusController;
 use App\Http\Controllers\frontend\LandingpageController;
-use App\Http\Controllers\HotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,33 +30,34 @@ use App\Http\Controllers\HotelController;
 
 //route for frontend
 Route::get('/',[LandingpageController::class,'home'])->name('website');
-Route::post('/Registration',[LandingpageController::class,'signup'])->name('registration');
-Route::post('/Login',[LandingpageController::class,'login'])->name('user.login');
-Route::get('/Logout',[LandingpageController::class,'logout'])->name('user.logout');
-Route::get('room_type/view/{roomView}',[LandingpageController::class,'roomView'])->name('frontend.room.view');
-Route::get('/booking_form/{room_id}',[LandingpageController::class,'viewBookingForm'])->name('booking.form');
-Route::post('/booking_form/store/{room_id}',[LandingpageController::class,'store'])->name('booking.store');
+Route::get('/all-rooms',[LandingpageController::class,'allrooms'])->name('website.rooms');
+Route::get('/about',[LandingpageController::class,'about'])->name('website.about');
+Route::get('/contact',[LandingpageController::class,'contact'])->name('website.contact');
 
+Route::post('/registration',[LandingpageController::class,'signup'])->name('user.registration');
+Route::post('/login',[LandingpageController::class,'login'])->name('user.login');
+Route::get('/user/logout',[LandingpageController::class,'logout'])->name('user.logout');
+Route::get('/user/profile',[LandingpageController::class,'profile'])->name('user.profile');
+Route::put('/user/profile/update',[LandingpageController::class,'updateProfile'])->name('user.profile.update');
 
+Route::get('/single-room/view/{roomView}',[LandingpageController::class,'roomView'])->name('frontend.view.room');
+Route::get('/booking-form/{room_id}',[LandingpageController::class,'viewBookingForm'])->name('booking.form');
+Route::post('/booking_data/store/{room_id}',[LandingpageController::class,'store'])->name('booking.store');
+Route::get('/approved/{booking_approved}',[StatusController::class,'approved'])->name('approved');
+Route::get('/disapproved/{booking_disapproved}',[StatusController::class,'disapproved'])->name('disapproved');
 
 
 
 //route for backend
 Route::get('/login',[UserController::class,'login'])->name('login');
 Route::post('/do-login',[UserController::class,'doLogin'])->name('do.login');
-Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
 
 Route::group(['middleware'=>['auth','CheckAdmin'],'prefix'=>'admin'],function (){
-
-Route::get('/',[MasterController::class,'home'])->name('dashboard');
-
-Route::get('/user',[UserController::class,'list'])->name('user');
-Route::get('/user/create',[UserController::class,'createForm'])->name('users.create');
-Route::post('/user/store',[UserController::class,'store'])->name('user.store');
-
+    
+Route::get('/logout',[UserController::class,'logout'])->name('logout');
 Route::get('/admin',[AdminController::class,'home'])->name('admin');
-
+Route::get('/',[MasterController::class,'home'])->name('dashboard');
 
 Route::get('/Hotel',[HotelController::class,'Home'])->name('hotel');
 Route::get('/Hotel/create',[HotelController::class,'create'])->name('hotel.create');
@@ -65,8 +67,7 @@ Route::get('hotel/edit/{hotelEdit}',[HotelController::class,'hotelEdit'])->name(
 Route::put('hotel/edit/{hotelUpdate}',[HotelController::class,'hotelUpdate'])->name('admin.hotel.update');
 Route::get('hotel/view/{hotelView}',[HotelController::class,'hotelView'])->name('admin.hotel.view');
 
-
-
+Route::get('/user',[UserController::class,'list'])->name('user');
 Route::get('/Guest',[GuestController::class,'list'])->name('guest');
 Route::get('/Guest/create',[GuestController::class,'create'])->name('guest.create');
 
@@ -86,13 +87,14 @@ Route::get('room/edit/{roomEdit}',[RoomController::class,'roomEdit'])->name('roo
 Route::put('room/edit/{roomUpdate}',[RoomController::class,'Update'])->name('room.update');
 Route::get('room/view/{roomView}',[RoomController::class,'roomView'])->name('room.view');
 
-
-
 Route::get('/Booking',[BookingController::class,'list'])->name('booking');
 
 Route::get('/Amenities',[AmenitiesController::class,'list'])->name('amenities');
 Route::get('/Amenities/create',[AmenitiesController::class,'create'])->name('amenities.create');
 Route::post('/Amenities/store',[AmenitiesController::class,'store'])->name('amenities.store');
+Route::get('amenity/delete/{amenityDelete}',[AmenitiesController::class,'amenitydelete'])->name('amenity.delete');
+Route::get('amenity/edit/{amenityEdit}',[AmenitiesController::class,'amenityEdit'])->name('admin.amenity.edit');
+Route::put('amenity/edit/{amenityUpdate}',[AmenitiesController::class,'amenityUpdate'])->name('admin.amenity.update');
 
 Route::get('/Payment',[PaymentController::class,'list'])->name('payment');
 Route::get('/Reports',[ReportsController::class,'list'])->name('reports');

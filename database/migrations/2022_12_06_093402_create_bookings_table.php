@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
+            $table->string('room_id');
             $table->string('name');
             $table->string('email');
-            $table->string('check_in_date');
-            $table->string('check_out_date');
-            $table->string('guest');
-            $table->string('days');
-            $table->string('contact');
             $table->string('address');
-            $table->string('status')->default();
+            $table->string('contact');
+            $table->string('guest');
+            $table->date('check_in_date');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

@@ -107,28 +107,30 @@
             top: 20px
         }
     </style>
-    <h1>Single View</h1>
 
+    <h1>Single View</h1>
     <div class="container pt-5">
         <div class="row justify-content-center">
             <div class="card">
                 <div class="top-design"></div>
-                <div class="card-body"><img
-                    src="{{url('/uploads/'.$room->room_image)}}" alt="" class="avatar">
-                    <div class="user-info">
-                        <h3>{{$room->name}}</h3> <span class="text-muted"></span> 
-                    </div>
-                    <div class="bg-t">
-                        <ul class="nav text-center">
-                            <li class="nav-item h4"><a href="#" class="nav-link text-dark"><i class="fa fa-rss "></i>
-                            {{$room->amount}} .BDT</a></li>
-                        </ul>
-                        <div class="link-b"><a class="btn btn-primary btn-twitter btn-sm" href="#"> <i
-                                    class="fa fa-twitter"></i> </a> <a class="btn btn-danger btn-sm" rel="publisher"
-                                                                       href="#"> <i class="fa fa-instagram"></i> </a> <a
-                                class="btn btn-primary btn-sm" rel="publisher" href="#"> <i class="fa fa-facebook"></i>
-                            </a></div>
-                    </div>
+                <div class="card-body">
+                   <img src="{{url('/uploads/'.$room->room_image)}}" alt="" class="avatar">
+                <div class="user-info">
+                    <h3>{{$room->name}}</h3> <span class="text-muted"></span> 
+                </div>
+                <div class="bg-t">
+             <ul class="nav text-center">
+                <li class="nav-item h4">
+                <a href="#" class="nav-link text-dark">
+                <i class="fa fa-rss "></i>{{$room->amount}} .BDT</a>
+                </li>
+            </ul>
+                <div class="link-b">
+                  <a class="btn btn-primary btn-twitter btn-sm" href="#"> <i class="fa fa-twitter"></i></a>
+                  <a class="btn btn-danger btn-sm" rel="publisher" href="#"> <i class="fa fa-instagram"></i></a> 
+                  <a class="btn btn-primary btn-sm" rel="publisher" href="#"> <i class="fa fa-facebook"></i></a>
+                </div>
+            </div>
                     <div class="input-group mb-3 w-75 mx-auto">
                         <a href="{{route('booking.form',$room->id)}}" class="btn addBtn form-control" aria-describedby="myBtn">Book Now</a>
                     </div>

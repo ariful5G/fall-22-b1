@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\User;
+use App\Models\Hotel;
 use App\Models\Booking;
 use App\Models\Room_type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Room;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class LandingpageController extends Controller
@@ -17,6 +19,25 @@ class LandingpageController extends Controller
     // dd($rooms);
     return view('frontend.pages.home',compact('rooms'));
   }
+
+  public function allrooms()
+  {
+      $rooms=Room_type::all();
+      return view('frontend.pages.rooms_view',compact('rooms'));
+  }
+
+  public function about()
+  {
+    $rooms=Room_type::all();
+    return view('frontend.pages.about',compact('rooms'));
+  }
+
+  public function contact()
+  {
+    $rooms=Room_type::all();
+    return view('frontend.pages.contact',compact('rooms'));
+  }
+
   public function signup(request $request)
   {
     //dd($request->all());
@@ -30,56 +51,91 @@ class LandingpageController extends Controller
       'gender' => $request->gender,
       'role' => 'user'
     ]);
-    Alert::success('Registration Successfull');
+    Alert::success('Signup','Your Registration Successfull');
     return redirect()->back();
   }
+
   public function login(request $request)
   {
     //    dd($request->all());
     $credentials = $request->except('_token');
     //    dd($credentials);
     if (auth()->attempt($credentials)) {
-      // dd("true");
       return redirect()->back();
     }
-    // dd("false");
   }
+
   public function logout()
   {
     auth()->logout();
     Alert::success('Logout', 'Logout Successful');
     return redirect()->back();
   }
+
   public function roomView($roomView)
     {
         $rooms=Room_type::all();
         $room=Room_type::find($roomView);
-        return view('frontend.pages.room_view',compact('room','rooms'));
+        return view('frontend.pages.single_view',compact('room','rooms'));
     }
     public function viewBookingForm($room_id)
     {
+      if(auth()->user()){
+
        $room=Room_type::find($room_id);
         return view('frontend.pages.booking_form',compact('room'));
+      }
+      else
+       {  Alert::warning('You are not authenticate','Do registration & Login');
+          return redirect()->route('website');
+        }
     }
     public function store(Request $request,$room_id)
     {
+              // create the order
+        $room = Room_type::find($room_id);
+        $checkavailability = Booking::where('room_id',$room->id)->orderBy('room_id','desc')->first();
+        if($checkavailability){
+          if($checkavailability->check_in_date != $request->check_in){
+         
 
-        // create the order
-        Booking::create([
-           //'user_id'=>auth()->user()->id,
-           //'room_id'=>$room_id,
-           'name'=>$request->name,
-           'email'=>$request->email,
-           'check_in_date'=>$request->check_in,
-           'check_out_date'=>$request->check_out,
-           'guest'=>$request->guest,
-           'days'=>$request->days,
-           'contact'=>$request->contact,
-           'address'=>$request->address,
-           'status'=>$request->status,
-        ]);
+                  Booking::create([
+                    'user_id'=>auth()->user()->id,
+                    'room_id'=>$room->id,
+                    'name'=>$request->name,
+                    'email'=>$request->email,
+                    'address'=>$request->address,
+                    'contact'=>$request->contact,
+                    'check_in_date'=>$request->check_in,
+                    'guest'=>$request->guest,
+                ]);
+                Alert::success('Booking', 'Booking Successful');
+                return redirect()->route('website');
+          }
+        }
+        Alert::error('sorry', 'room not available on this date');
+          return to_route('website');
+        
       
-        return redirect()->route('website');
+  }
+  public function profile()
+  {
+    $booking = Booking::where('user_id',auth()->user()->id)->get();
+    // dd($booking);
+    return view("frontend.pages.profile",compact('booking'));
+  }
+  public function updateProfile(Request $request)
+  {
+     //validation
 
-    }
+      $user=User::find(auth()->user()->id);
+      $user->update([
+         'name'=>$request->user_name,
+         'address'=>$request->user_address,
+         'contact'=>$request->contact,
+      ]);
+      Alert::success('Profile','User profile updated.');
+      return redirect()->route('website');
+  }
+  
 }

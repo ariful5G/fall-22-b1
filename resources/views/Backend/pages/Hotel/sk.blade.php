@@ -1,7 +1,7 @@
+@extends('master')
 
-@extends('frontend.webside')
 @section('content')
-
+ 
 
 <style id="" media="all">/* vietnamese */
 @font-face {
@@ -69,22 +69,16 @@
 
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 
-
-<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-</head>
-<body>
+		
+<meta name="robots" content="noindex, follow">
 <div id="booking" class="section">
 <div class="section-center">
 <div class="container">
 <div class="row">
 <div class="booking-form">
 <div class="booking-bg"></div>
-
-
 <form>
 <div class="form-header">
 <h2>Make your reservation</h2>
@@ -106,23 +100,14 @@
 <div class="row">
 <div class="col-md-6">
 <div class="form-group">
-<span class="form-label">Adults</span>
-<select class="form-control">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-</select>
+
 <span class="select-arrow"></span>
 </div>
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<span class="form-label">Children</span>
-<select class="form-control">
-<option>0</option>
-<option>1</option>
-<option>2</option>
-</select>
+
+
 <span class="select-arrow"></span>
 </div>
 </div>
@@ -154,6 +139,5 @@
   gtag('config', 'UA-23581568-13');
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"7753d0d3ece187b4","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.11.3","si":100}' crossorigin="anonymous"></script>
-</body>
-</html>
+
 @endsection

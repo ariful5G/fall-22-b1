@@ -10,31 +10,10 @@ class UserController extends Controller
 {
     public function list()
     {
-        $user_list=User::paginate(5);
-        return view('backend.pages.user_list.users',compact('user_list'));
+        $user_list=User::paginate(4);
+        return view('backend.pages.user_list',compact('user_list'));
     }
 
-    public function createForm()
-    {
-        return view('backend.pages.user_list.create');
-    }
-
-    public function store(Request $request)
-    {
-    //    dd($request->all());
-        $request->validate(['email'=>'required|unique:users,email',]);
-
-        User::create([
-            //database column name => input field name
-                'email'=>$request->email,
-                'password'=>$request->password,
-        ]);
-
-
-//        return redirect()->route('category.list');
-        return redirect()->route('users.create')->with('message','Value Added Successfully.');
-
-    }
     public function login()
     {
         return view('backend.pages.login');

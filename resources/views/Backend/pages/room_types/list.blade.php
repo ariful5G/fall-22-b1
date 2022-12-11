@@ -1,32 +1,50 @@
 @extends('master')
 
 @section('content')
+<h1>Room_Type</h1>
 
-<h2> Room Details </h2>
+<a href="{{route('room_type.Details')}}" class ="btn btn-success" > Add room_type </a>
 
 @if(session()->has('message'))
 <p class="alert alert-success">{{session()->get('message')}}</p>
 @endif
 
-<form method='POST' action="{{route('room_type.store')}}" enctype="multipart/form-data">
-     @csrf
-     <div class="form-group">
-            <label for="name">Enter Name</label>
-            <input type="text"name="room_name"required class="form-control" id="name" placeholder="Enter room type">
-    </div><br>
-    <div class= "form-group">
-        <label for="amount">Amount</label>
-        <input type="number" name="amount" class="form-control" id="price" placeholder="Enter Amount">
-    </div><br>
-    <div>
-        <label for="image">Upload Image</label>
-        <input type="file" name="image" class="form-control"id="image">
-   </div>
-   <div><br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-   <input type="reset" class="btn btn-secondary">
-   </div>
+@if(session()->has('error'))
+<p class="alert alert-danger">{{session()->get('error')}}</p>
+@endif
 
-</form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Room image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @foreach($room_types as $key=>$data)
+        <tr>
+            <td>{{$key + $room_types->firstItem()}}</td>
+            <td>
+            <img src="{{url('/uploads/'.$data->room_image)}}"style="height:80px; width:100px"alt="My Image">
+            </td>
+            <td>{{$data->name}}</td>
+            <td>{{$data->amount}}</td>
+            
+            <td>
+                <a href="{{route('admin.room.edit',$data->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('admin.room.delete',$data->id)}}" class="btn btn-danger">Delete</a>
+                <a href="{{route('admin.room.view',$data->id)}}" class="btn btn-success">View Room</a>
+            </td>
+        </tr>
+        @endforeach
+
+    </tbody>
+    
+    </table>
+    {{$room_types->links()}}
 
 @endsection

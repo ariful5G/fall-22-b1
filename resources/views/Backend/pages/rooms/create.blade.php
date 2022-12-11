@@ -36,10 +36,15 @@
             <label for="amenities_description">Amenities Description</label>
             <input type="text"name="description"required class="form-control" id="name" placeholder="Enter Description">
     </div>
-    <div class= "form-group">
+    <div class="form-group">
         <label for="amenities">Select Amenities</label>
-        <input type="number" name="amenities" class="form-control" id="price" placeholder="Number of amenities">
-    </div>
+        <select name="amenities" id="" class="form-control">
+                <option value="parking">Car Parking</option>
+                <option value="Free-wifi">Free-wifi</option>
+                <option value="Airport Drop & Pick-up">Airport Drop & Pick-up</option>
+                <option value="Free breakfast">Free breakfast</option>
+        </select>
+     </div>
    
       <div class= "form-group">
         <label for="accomodate">Accomodate</label>

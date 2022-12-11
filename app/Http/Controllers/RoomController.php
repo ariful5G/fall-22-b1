@@ -41,7 +41,6 @@ class RoomController extends Controller
         return redirect()->back()->with('message','Data added successfully.');
     }
     public function roomdelete($roomDelete)
-
     {
         
         Room::find($roomDelete)->delete();
@@ -57,7 +56,7 @@ class RoomController extends Controller
     {
         
         $room=Room::find($roomUpdate); 
-        $fileName=$room->room_image;
+        $fileName=$room->image;
 
         if($request->hasFile('image'))
         {

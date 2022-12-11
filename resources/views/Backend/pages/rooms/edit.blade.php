@@ -37,11 +37,15 @@
             <label for="amenities_description">Amenities Description</label>
             <input type="text"value="{{$room->amenities_description}}"name="description"required class="form-control" id="name" placeholder="Enter Description">
     </div>
-    <div class= "form-group">
+    <div class="form-group">
         <label for="amenities">Select Amenities</label>
-        <input type="number"value="{{$room->amenities}}" name="amenities" class="form-control" id="price" placeholder="Number of amenities">
-    </div>
-   
+        <select name="amenities" id="" class="form-control">
+                <option value="parking">Car Parking</option>
+                <option value="Free-wifi">Free-wifi</option>
+                <option value="Airport Drop & Pick-up">Airport Drop & Pick-up</option>
+                <option value="Free breakfast">Free breakfast</option>
+        </select>
+     </div>
       <div class= "form-group">
         <label for="accomodate">Accomodate</label>
         <input type="number" value="{{$room->accomodate}}"name="accomodate" class="form-control" id="price" placeholder="Number of accomodate">
