@@ -31,6 +31,7 @@ class Room_typeController extends Controller
             'room_image'=>$fileName,
             'name'=>$request->room_name,
             'amount'=>$request->amount,
+            'description'=>$request->description,
         ]);
     
         return redirect()->back()->with('message','room added successfully.');
@@ -78,7 +79,8 @@ class Room_typeController extends Controller
         $room->update([
             'room_image'=>$fileName,
             'name'=>$request->room_name,
-            'amount'=>$request->amount,  
+            'amount'=>$request->amount,
+            'description'=>$request->description,  
         ]);
         return redirect()->route('room_type')->with('message','Update successfull.');
 

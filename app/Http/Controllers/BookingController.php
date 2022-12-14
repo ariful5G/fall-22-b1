@@ -13,4 +13,10 @@ class BookingController extends Controller
 
         return view('backend.pages.booking',compact('room'));
     }
+    public function bookingDelete($bookingDelete)
+    {
+        Booking::find($bookingDelete)->delete();
+        return redirect()->back();
+    }
+
 }

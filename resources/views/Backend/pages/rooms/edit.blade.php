@@ -6,54 +6,37 @@
 <form method='POST' action="{{route('room.update',$room->id)}}" enctype="multipart/form-data">
     @method('put')
      @csrf
-     <div class="form-group">
-            <label for="room">Room Name</label>
-            <input type="text" value="{{$room->room_name}}" name="room"required class="form-control" id="name" placeholder="Enter Room Name">
-    </div>
-    <div class= "form-group">
-        <label for="room id">Room ID</label>
-        <input type="number"value="{{$room->room_id}}" name="room_id" class="form-control" placeholder="Room id">
+     <!-- <div class="form-group">
+            <label for="room_types">Room Types</label>
+            <input type="text" value="{{$room->room_type_id}}" name="room"required class="form-control" id="name" placeholder="Enter Room Types">
+    </div> -->
+    <div class="form-group">
+            <label for="room_name">Room Name</label>
+            <input type="text"value="{{$room->name}}"name="room_name"class="form-control" id="name" placeholder="Enter room name">
     </div>
   
     <div class="form-group">
             <label for="room_no">Room No</label>
-            <input type="number"value="{{$room->room_no}}"name="room_no"required class="form-control" id="name" placeholder="Enter room no">
+            <input type="number"value="{{$room->room_no}}"name="room_no" class="form-control" id="name" placeholder="Enter room no">
     </div>
      <div class="form-group">
-            <label for="room_type">Select Room Types</label>
-            <input type="text"value="{{$room->room_type}}"name="room_type"required class="form-control" id="name" placeholder="Enter room type">
+            <label for="type">Types</label>
+            <input type="text"value="{{$room->type}}"name="name" class="form-control" id="name" placeholder="Enter room type">
     </div>
  
     <div class= "form-group">
         <label for="amount">Amount</label>
         <input type="number"value="{{$room->amount}}" name="amount" class="form-control" id="price" placeholder="Enter Amount">
     </div>
-    <div class= "form-group">
-        <label for="amenities id">Amenities ID</label>
-        <input type="number"value="{{$room->amenities_id}}" name="amenities_id" class="form-control" placeholder="Amenities id">
-    </div>
   
-    <div class="form-group">
-            <label for="amenities_description">Amenities Description</label>
-            <input type="text"value="{{$room->amenities_description}}"name="description"required class="form-control" id="name" placeholder="Enter Description">
-    </div>
-    <div class="form-group">
-        <label for="amenities">Select Amenities</label>
-        <select name="amenities" id="" class="form-control">
-                <option value="parking">Car Parking</option>
-                <option value="Free-wifi">Free-wifi</option>
-                <option value="Airport Drop & Pick-up">Airport Drop & Pick-up</option>
-                <option value="Free breakfast">Free breakfast</option>
-        </select>
-     </div>
       <div class= "form-group">
         <label for="accomodate">Accomodate</label>
-        <input type="number" value="{{$room->accomodate}}"name="accomodate" class="form-control" id="price" placeholder="Number of accomodate">
+        <input type="number" value="{{$room->no_of_accomodate}}"name="accomodation" class="form-control" id="price" placeholder="Number of accomodate">
     </div>
-    <div>
+    <!-- <div>
         <label for="Room_image">Upload Room Image</label>
         <input type="file"value="{{$room->room_image}}" name="image" class="form-control"id="image">
-   </div>
+   </div> -->
   
    <div>
         <button type="submit" class="btn btn-primary">Update</button>

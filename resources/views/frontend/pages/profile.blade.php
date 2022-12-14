@@ -17,13 +17,13 @@
                         @csrf
                     <div class="row mt-2">
                         <div class="col-md-12"><label class="labels">Name</label>
-                            <input name="user_name" type="text" class="form-control" placeholder="Name" value=""></div>
+                            <input name="user_name" type="text" class="form-control" placeholder="Name" value="{{auth()->user()->name}}"></div>
 
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Email ID</label><input readonly type="text" class="form-control" placeholder="enter email id" value=""></div>
+                        <div class="col-md-12"><label class="labels">Email ID</label><input readonly type="text" class="form-control" placeholder="enter email id" value="{{auth()->user()->email}}"></div>
                         <div class="col-md-12"><label class="labels">Mobile Number</label><input name="contact" type="text" class="form-control" placeholder="enter phone number" value="{{auth()->user()->contact}}"></div>
-                        <div class="col-md-12"><label class="labels">Address Line 1</label><input name="user_address" type="text" class="form-control" placeholder="enter address line 1" value="{{auth()->user()->address}}"></div>
+                        <div class="col-md-12"><label class="labels">Address</label><input name="user_address" type="text" class="form-control" placeholder="enter your address" value="{{auth()->user()->address}}"></div>
                        </div>
 
                     <div class="mt-5 text-center">
@@ -48,6 +48,7 @@
             <th scope="col">Contact No</th>
             <th scope="col">No of Guest</th>
             <th scope="col">Check In Date</th>
+            <th scope="col">Check Out Date</th>
             <th scope="col">Booking Status</th>
     </tr>
   </thead>
@@ -60,8 +61,9 @@
             <td>{{$data->email}}</td>
             <td>{{$data->address}}</td>
             <td>{{$data->contact}}</td>
-            <td>{{$data->guest}}</td>
+            <td>{{$data->no_of_guest}}</td>
             <td>{{$data->check_in_date}}</td>
+            <td>{{$data->check_out_date}}</td>
             <td>{{$data->status}}</td>
     </tr>
     @endforeach

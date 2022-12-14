@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\Room;
 use App\Models\User;
+use App\Models\Guest;
 use App\Models\Hotel;
 use App\Models\Booking;
 use App\Models\Room_type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Room;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class LandingpageController extends Controller
@@ -16,8 +17,9 @@ class LandingpageController extends Controller
   public function home()
   {
     $rooms=Room_type::all();
+    $contact=Guest::all();
     // dd($rooms);
-    return view('frontend.pages.home',compact('rooms'));
+    return view('frontend.pages.home',compact('rooms','contact'));
   }
 
   public function allrooms()
@@ -35,7 +37,8 @@ class LandingpageController extends Controller
   public function contact()
   {
     $rooms=Room_type::all();
-    return view('frontend.pages.contact',compact('rooms'));
+    $contact=Guest::all();
+    return view('frontend.pages.contact',compact('rooms','contact'));
   }
 
   public function signup(request $request)
@@ -74,7 +77,8 @@ class LandingpageController extends Controller
 
   public function roomView($roomView)
     {
-        $rooms=Room_type::all();
+        $rooms=Room_type::find($roomView);
+        $rooms=Room::where('room_type_id',$rooms->id)->get();
         $room=Room_type::find($roomView);
         return view('frontend.pages.single_view',compact('room','rooms'));
     }
@@ -83,6 +87,7 @@ class LandingpageController extends Controller
       if(auth()->user()){
 
        $room=Room_type::find($room_id);
+       $room=Room::find($room_id);
         return view('frontend.pages.booking_form',compact('room'));
       }
       else
@@ -92,14 +97,17 @@ class LandingpageController extends Controller
     }
     public function store(Request $request,$room_id)
     {
-              // create the order
-        $room = Room_type::find($room_id);
-        $checkavailability = Booking::where('room_id',$room->id)->orderBy('room_id','desc')->first();
-        if($checkavailability){
-          if($checkavailability->check_in_date != $request->check_in){
-         
+                    // create the order
+        $room = Room::find($room_id);
+        $checkavailability = Booking::where('room_id',$room->id)->orderBy('id','DESC')->first();
+      // dd($checkavailability,$checkavailability?->check_out_date < $request->check_in && $checkavailability?->check_in_date < $request->check_in);
 
-                  Booking::create([
+
+
+      // http://127.0.0.1:8000/booking-form/8
+        if($checkavailability){
+          if($checkavailability->check_out_date < $request->check_in && $checkavailability->check_in_date < $request->check_in){
+                    Booking::create([
                     'user_id'=>auth()->user()->id,
                     'room_id'=>$room->id,
                     'name'=>$request->name,
@@ -107,15 +115,32 @@ class LandingpageController extends Controller
                     'address'=>$request->address,
                     'contact'=>$request->contact,
                     'check_in_date'=>$request->check_in,
-                    'guest'=>$request->guest,
+                    'check_out_date'=>$request->check_out,
+                    'no_of_guest'=>$request->guest,
                 ]);
                 Alert::success('Booking', 'Booking Successful');
-                return redirect()->route('website');
+                return redirect()->route('website.rooms');
+          }
+          else{
+            Alert::error('sorry', 'room not available on this date');
+          return to_route('website.rooms'); 
           }
         }
-        Alert::error('sorry', 'room not available on this date');
-          return to_route('website');
-        
+        else{
+          Booking::create([
+            'user_id'=>auth()->user()->id,
+            'room_id'=>$room->id,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'address'=>$request->address,
+            'contact'=>$request->contact,
+            'check_in_date'=>$request->check_in,
+            'check_out_date'=>$request->check_out,
+            'no_of_guest'=>$request->guest,
+        ]);
+        Alert::success('Booking', 'Booking Successful');
+                return redirect()->route('website.rooms');
+        }    
       
   }
   public function profile()

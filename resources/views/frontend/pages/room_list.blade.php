@@ -1,8 +1,7 @@
-@extends('master')
+@extends('frontend.webside')
 
 @section('content')
 <h1>Room List</h1>
-<a href="{{route('rooms.create')}}"class="btn btn-success">Add Rooms</a>
 <table class="table">
         <thead>
         <tr>
@@ -32,10 +31,8 @@
             <td>{{$data->amount}}</td>
             <td>{{$data->no_of_accomodate}}</td>
             <td>
-                <a href="{{route('room.edit',$data->id)}}" class="btn btn-outline-primary">Edit</a>
-                <a href="{{route('room.delete',$data->id)}}" class="btn btn-outline-danger">Delete</a>
-                <a href="{{route('room.view',$data->id)}}" class="btn btn-outline-success">View</a>
-            </td>
+            <a href="{{route('room.view',$data->id)}}" class="btn btn-outline-success">View</a>
+           </td>
         </tr>
 
      @endforeach
@@ -43,5 +40,4 @@
     
     </table>
  
-    {{$room->links()}}
 @endsection

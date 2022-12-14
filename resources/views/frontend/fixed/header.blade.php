@@ -12,7 +12,7 @@
 				<li class="nav-item"><a href="{{route('website.about')}}" class="nav-link">About</a></li>
 				<li class="nav-item"><a href="{{route('website.contact')}}" class="nav-link">Contact</a></li>
 				@auth
-				<li class="nav-item"><a href="{{route('user.profile')}}" class="nav-link">{{auth()->user()->name}}'s Account</a></li>
+				<li class="nav-item"><a href="{{route('user.profile')}}" class="nav-link">{{auth()->user()->name}}'s Profile</a></li>
 				<li class="nav-item"><a href="{{route('user.logout')}}" class="nav-link">Logout</a></li>
 				@else
 				<li class="nav-item"><a href='blog.html' class="nav-link" data-toggle="modal" data-target="#registration">Signup</a></li>

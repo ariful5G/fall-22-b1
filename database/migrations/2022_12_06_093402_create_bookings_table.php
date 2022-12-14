@@ -21,8 +21,11 @@ return new class extends Migration
             $table->string('email');
             $table->string('address');
             $table->string('contact');
-            $table->string('guest');
+            $table->integer('no_of_guest');
             $table->date('check_in_date');
+            $table->date('check_out_date')->nullable();
+            $table->integer('days')->nullable();
+            $table->integer('total_amount')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();
         });

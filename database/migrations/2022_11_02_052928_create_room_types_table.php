@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('room_image');
             $table->string('name',100);
             $table->integer('amount');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

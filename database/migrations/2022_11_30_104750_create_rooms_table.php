@@ -15,16 +15,13 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('room_type_id')->constrained('room_types');
             $table->string('room_image')->nullable();
-            $table->string('room_name');
-            $table->string('room_id')->nullable();
-            $table->string('room_no')->nullable();
-            $table->string('room_type');
-            $table->string('amount')->nullable();
-            $table->string('amenities_id')->nullable();
-            $table->string('amenities');
-            $table->string('amenities_description')->nullable();
-            $table->string('accomodate')->nullable();
+            $table->string('name')->nullable();
+            $table->integer('room_no')->nullable();
+            $table->string('type');
+            $table->integer('amount')->nullable();
+            $table->integer('no_of_accomodate')->nullable();
             $table->timestamps();
         });
     }

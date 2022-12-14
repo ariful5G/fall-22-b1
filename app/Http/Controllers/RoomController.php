@@ -3,21 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Room_type;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
     public function vip()
     { 
-        $room=Room::all();
+        $room=Room::paginate(5);
         return view("backend.pages.rooms.list",compact('room'));
     }
     public function createform()
     {
-        return view('backend.pages.rooms.create');
+        $roomType = Room_type::all();
+        return view('backend.pages.rooms.create',compact('roomType'));
     }
     public function store(Request $request)
     {
+
         $fileName=null;
         if($request->hasFile('image'))
         {
@@ -28,15 +31,12 @@ class RoomController extends Controller
         } 
         Room::create([
             'room_image'=>$fileName,
-            'room_name'=>$request->room,
-            'room_id'=>$request->room_id,
+            'room_type_id'=>$request->room_type_id,
+            'name'=>$request->room_name,
             'room_no'=>$request->room_no,
-            'room_type'=>$request->room_type,
+            'type'=>$request->name,
             'amount'=>$request->amount,
-            'amenities_id'=>$request->amenities_id,
-            'amenities'=>$request->amenities,
-            'amenities_description'=>$request->description,
-            'accomodate'=>$request->accomodate,
+            'no_of_accomodate'=>$request->accomodate,
         ]);
         return redirect()->back()->with('message','Data added successfully.');
     }
@@ -56,26 +56,23 @@ class RoomController extends Controller
     {
         
         $room=Room::find($roomUpdate); 
-        $fileName=$room->image;
+        // $fileName=$room->image;
 
-        if($request->hasFile('image'))
-        {
-            // dd("true");
-            // generate name
-            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('/uploads',$fileName);
-        } 
+        // if($request->hasFile('image'))
+        // {
+        //     // dd("true");
+        //     // generate name
+        //     $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
+        //     $request->file('image')->storeAs('/uploads',$fileName);
+        // } 
         $room->update([
-            'room_image'=>$fileName,
-            'room_name'=>$request->room,
-            'room_id'=>$request->room_id,
+            // 'room_image'=>$fileName,
+            // 'room_type_id'=>$request->room_type_id,
+            'name'=>$request->room_name,
             'room_no'=>$request->room_no,
-            'room_type'=>$request->room_type,
+            'type'=>$request->name,
             'amount'=>$request->amount,
-            'amenities_id'=>$request->amenities_id,
-            'amenities'=>$request->amenities,
-            'amenities_description'=>$request->description,
-            'accomodate'=>$request->accomodate,  
+            'no_of_accomodate'=>$request->accomodation,  
         ]);
         return redirect()->route('rooms')->with('message','Update successfull.');
 
@@ -84,6 +81,11 @@ class RoomController extends Controller
     {
         $room=Room::find($roomView);
         return view('backend.pages.rooms.view',compact('room'));
+    }
+    public function search()
+    { 
+        $room=Room::all();
+        return view("frontend.pages.room_list",compact('room'));
     }
 }
 

@@ -26,14 +26,19 @@
         <label for="check in">Check In Date</label>
         <input type="date" name="check_in" class="form-control" placeholder="Enter Check In Date">
     </div>
-    <!-- <div class= "form-group">
-        <label for="check out">Check Out Date</label>
+    <div class= "form-group">
+        <label for="check in">Check Out Date</label>
         <input type="date" name="check_out" class="form-control" placeholder="Enter Check Out Date">
-    </div> -->
+    </div>
     <div class= "form-group">
         <label for="guest"> No of Guest</label>
         <input type="number" name="guest" class="form-control" placeholder="Number of guest">
     </div>
+    <!-- <div class= "form-group">
+        <label for="check out">Check Out Date</label>
+        <input type="date" name="check_out" class="form-control" placeholder="Enter Check Out Date">
+    </div> -->
+    
     <!-- <div class= "form-group">
         <label for="days"> No of Days</label>
         <input type="number" name="days" class="form-control" placeholder="Number of Days">

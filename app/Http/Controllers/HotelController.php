@@ -53,6 +53,6 @@ class HotelController extends Controller
     public function hotelView($hotelView)
     {
         $hotel=Hotel::find($hotelView);
-        return view('backend.pages.hotel.sk',compact('hotel'));
+        return view('backend.pages.hotel.hotel_view',compact('hotel'));
     }
 }

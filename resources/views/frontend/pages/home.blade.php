@@ -39,7 +39,7 @@
 			<div class="col-lg-12">
 				<form action="#" class="booking-form">
 					<div class="row">
-						<div class="col-md-3 d-flex">
+						<div class="col-md-4 d-flex">
 							<div class="form-group p-4 align-self-stretch d-flex align-items-end">
 								<div class="wrap">
 									<label for="#">Check-in Date</label>
@@ -47,7 +47,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 d-flex">
+						<div class="col-md-4 d-flex">
 							<div class="form-group p-4 align-self-stretch d-flex align-items-end">
 								<div class="wrap">
 									<label for="#">Check-out Date</label>
@@ -56,28 +56,9 @@
 							</div>
 						</div>
 						<div class="col-md d-flex">
-							<div class="form-group p-4 align-self-stretch d-flex align-items-end">
-								<div class="wrap">
-									<label for="#">Room</label>
-									<div class="form-field">
-										<div class="select-wrap">
-											<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-											<select name="" id="" class="form-control">
-												<option value="">Suite</option>
-												<option value="">Family Room</option>
-												<option value="">Deluxe Room</option>
-												<option value="">Classic Room</option>
-												<option value="">Superior Room</option>
-												<option value="">Luxury Room</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md d-flex">
 							<div class="form-group d-flex align-self-stretch">
-								<input type="submit" value="Check Availability" class="btn btn-primary py-3 px-4 align-self-stretch">
+							<!-- <button type="button" class="btn btn-primary">Primary</button> -->
+							<a href="{{route('checkavailabily')}}"><input type="button" value="Check Availability" class="btn btn-primary py-3 px-4 align-self-stretch"></a>
 							</div>
 						</div>
 					</div>
@@ -87,13 +68,14 @@
 	</div>
 </section>
 
-<section class="ftco-section ftc-no-pb ftc-no-pt">
-	<div class="container">
-		<div class="row">
+<section class=" ftc-no-pb ftc-no-pt">
+ 
+ <div class=""><!-- <div class="container"> -->
+	<div class="row">
 		<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
-				<div class="heading-section heading-section-wo-line pt-md-5 pl-md-5 mb-5">
-					<div class="ml-md-0">
-						<h2 class="mb-4">Welcome To Our Hotel</h2>
+				<div class="heading-section-wo-line pt-md-5 pl-md-5 mb-5">
+					<div class="">
+						<h2 class="">Welcome To Our Hotel</h2>
 						 <span class="subheading">Welcome to Hotel Sea Place</span>
 					</div>
 				</div>
@@ -108,15 +90,15 @@
 						<li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
 						<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
 					</ul>
-				</div>
-			</div>
+	           </div>
+            </div>
 		
-			<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/bg_2.jpg);">
-				<ul style="list-style:none;">
-				<li><h2>Our Services</h2></li>
+		<div class="col-md-5 pb-md-5 img img-2 d-flex justify-content-center align-items-center ftco-animate">
+			<ul>
+				<h2>Our Services</h2>
 				<li>Large Parking Area - 150 car at a time</li>
-				<li>Own Power Supply System.</li>
 				<li>Own Security System with Metal Detector & CCTV.</li>
+				<li>Own Power Supply System.</li>
 				<li>Round the Clock Room Service</li>
 				<li>Multimedia Projector Facility</li>
 				<li>Internet Facility [WiFi]</li>
@@ -130,8 +112,8 @@
 				<li>Helipad</li>
 				<li>Visa and Master Card</li>
 				<li>Bus Ticket Booking</li>
-			</ul>
-			</div>
+			 </ul>
+		</div>
 		</div>
 	</div>
 </section>
@@ -356,23 +338,25 @@
 		</div>
 		<div class="row block-9">
 			<div class="col-md-6 order-md-last d-flex">
-				<form action="#" class="bg-white p-5 contact-form">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Your Name">
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Your Email">
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Subject">
-					</div>
-					<div class="form-group">
-						<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-					</div>
-				</form>
+			
+            <form action="{{route('guest.store')}}" method="post" class="bg-white p-5 contact-form">
+              @csrf
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <input type="text" name="email" class="form-control" placeholder="Your Email">
+              </div>
+              <div class="form-group">
+                <input type="text" name="subject" class="form-control" placeholder="Subject">
+              </div>
+              <div class="form-group">
+                <textarea name="massage" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
 
 			</div>
 

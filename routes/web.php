@@ -46,7 +46,7 @@ Route::post('/booking_data/store/{room_id}',[LandingpageController::class,'store
 Route::get('/approved/{booking_approved}',[StatusController::class,'approved'])->name('approved');
 Route::get('/disapproved/{booking_disapproved}',[StatusController::class,'disapproved'])->name('disapproved');
 
-
+Route::get('/search',[RoomController::class,'search'])->name('checkavailabily');
 
 //route for backend
 Route::get('/login',[UserController::class,'login'])->name('login');
@@ -63,38 +63,43 @@ Route::get('/Hotel',[HotelController::class,'Home'])->name('hotel');
 Route::get('/Hotel/create',[HotelController::class,'create'])->name('hotel.create');
 Route::post('/hotel/store',[HotelController::class,'store'])->name('hotel.store');
 Route::get('/hotel/delete/{holelInfoDelete}',[HotelController::class,'infoDelete'])->name('hotelinfo.delete');
-Route::get('hotel/edit/{hotelEdit}',[HotelController::class,'hotelEdit'])->name('admin.hotel.edit');
-Route::put('hotel/edit/{hotelUpdate}',[HotelController::class,'hotelUpdate'])->name('admin.hotel.update');
-Route::get('hotel/view/{hotelView}',[HotelController::class,'hotelView'])->name('admin.hotel.view');
+Route::get('/hotel/edit/{hotelEdit}',[HotelController::class,'hotelEdit'])->name('admin.hotel.edit');
+Route::put('/hotel/edit/{hotelUpdate}',[HotelController::class,'hotelUpdate'])->name('admin.hotel.update');
+Route::get('/hotel/view/{hotelView}',[HotelController::class,'hotelView'])->name('admin.hotel.view');
 
 Route::get('/user',[UserController::class,'list'])->name('user');
 Route::get('/Guest',[GuestController::class,'list'])->name('guest');
 Route::get('/Guest/create',[GuestController::class,'create'])->name('guest.create');
+Route::post('/guest/store',[GuestController::class,'store'])->name('guest.store');
 
 Route::get('/Room_type',[Room_typeController::class,'list'])->name('room_type');
 Route::get('/roomtype/Details',[Room_typeController::class,'CreateForm'])->name('room_type.Details');
 Route::post('/roomtype/store',[Room_typeController::class,'store'])->name('room_type.store');
-Route::get('room_type/delete/{roomDelete}',[Room_typeController::class,'roomdelete'])->name('admin.room.delete');
-Route::get('room_type/view/{roomView}',[Room_typeController::class,'roomView'])->name('admin.room.view');
-Route::get('room_type/edit/{roomEdit}',[Room_typeController::class,'roomEdit'])->name('admin.room.edit');
-Route::put('room_type/edit/{roomUpdate}',[Room_typeController::class,'Update'])->name('admin.room.update');
+Route::get('/room_type/delete/{roomDelete}',[Room_typeController::class,'roomdelete'])->name('admin.room.delete');
+Route::get('/room_type/view/{roomView}',[Room_typeController::class,'roomView'])->name('admin.room.view');
+Route::get('/room_type/edit/{roomEdit}',[Room_typeController::class,'roomEdit'])->name('admin.room.edit');
+Route::put('/room_type/edit/{roomUpdate}',[Room_typeController::class,'Update'])->name('admin.room.update');
 
 Route::get('/Rooms',[RoomController::class,'vip'])->name('rooms');
+
+
+
 Route::get('/Rooms/create',[RoomController::class,'createform'])->name('rooms.create');
 Route::post('/room/store',[RoomController::class,'store'])->name('room.store');
-Route::get('room/delete/{roomDelete}',[RoomController::class,'roomdelete'])->name('room.delete');
-Route::get('room/edit/{roomEdit}',[RoomController::class,'roomEdit'])->name('room.edit');
-Route::put('room/edit/{roomUpdate}',[RoomController::class,'Update'])->name('room.update');
-Route::get('room/view/{roomView}',[RoomController::class,'roomView'])->name('room.view');
+Route::get('/room/delete/{roomDelete}',[RoomController::class,'roomdelete'])->name('room.delete');
+Route::get('/room/edit/{roomEdit}',[RoomController::class,'roomEdit'])->name('room.edit');
+Route::put('/room/edit/{roomUpdate}',[RoomController::class,'Update'])->name('room.update');
+Route::get('/room/view/{roomView}',[RoomController::class,'roomView'])->name('room.view');
 
 Route::get('/Booking',[BookingController::class,'list'])->name('booking');
+Route::get('/booking/delete/{bookingDelete}',[BookingController::class,'bookingDelete'])->name('booking.delete');
 
 Route::get('/Amenities',[AmenitiesController::class,'list'])->name('amenities');
 Route::get('/Amenities/create',[AmenitiesController::class,'create'])->name('amenities.create');
 Route::post('/Amenities/store',[AmenitiesController::class,'store'])->name('amenities.store');
-Route::get('amenity/delete/{amenityDelete}',[AmenitiesController::class,'amenitydelete'])->name('amenity.delete');
-Route::get('amenity/edit/{amenityEdit}',[AmenitiesController::class,'amenityEdit'])->name('admin.amenity.edit');
-Route::put('amenity/edit/{amenityUpdate}',[AmenitiesController::class,'amenityUpdate'])->name('admin.amenity.update');
+Route::get('/amenity/delete/{amenityDelete}',[AmenitiesController::class,'amenitydelete'])->name('amenity.delete');
+Route::get('/amenity/edit/{amenityEdit}',[AmenitiesController::class,'amenityEdit'])->name('admin.amenity.edit');
+Route::put('/amenity/edit/{amenityUpdate}',[AmenitiesController::class,'amenityUpdate'])->name('admin.amenity.update');
 
 Route::get('/Payment',[PaymentController::class,'list'])->name('payment');
 Route::get('/Reports',[ReportsController::class,'list'])->name('reports');
