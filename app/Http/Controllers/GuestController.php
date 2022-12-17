@@ -9,8 +9,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 class GuestController extends Controller
 {
     public function list()
-    {
-        return view("backend.pages.guest.guest");
+    {   
+      $guest = Guest::all();
+        return view("backend.pages.guest.list", compact('guest'));
     }
     public function create()
     {

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Room Details</h1>
+<h1>Add Room</h1>
 
 <form method='post' action="{{route('room.store')}}" enctype="multipart/form-data">
      @csrf
@@ -39,7 +39,7 @@
     <div>
         <label for="Room_image">Upload Room Image</label>
         <input type="file" name="image" class="form-control"id="image">
-   </div>
+   </div><br>
   
    <div>
         <button type="submit" class="btn btn-primary">Submit</button>

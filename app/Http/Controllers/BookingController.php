@@ -9,9 +9,9 @@ class BookingController extends Controller
 {
     public function list()
     {
-        $room=Booking::all();
+        $rooms =Booking::all();
 
-        return view('backend.pages.booking',compact('room'));
+        return view('backend.pages.booking',compact('rooms'));
     }
     public function bookingDelete($bookingDelete)
     {

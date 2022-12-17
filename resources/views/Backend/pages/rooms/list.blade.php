@@ -19,9 +19,9 @@
         </thead>
 
         <tbody>
-        @foreach($room as $data)
+        @foreach($room as $key=> $data)
         <tr>
-            <td>{{$data->id}}</td>
+            <td>{{$key +1}}</td>
             <td>
             <img src="{{url('/uploads/'.$data->room_image)}}"style="height:80px; width:100px"alt="My Image">
             </td>

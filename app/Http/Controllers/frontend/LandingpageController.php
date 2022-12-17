@@ -7,9 +7,12 @@ use App\Models\User;
 use App\Models\Guest;
 use App\Models\Hotel;
 use App\Models\Booking;
+use Carbon\CarbonPeriod;
 use App\Models\Room_type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\BookingDetails;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class LandingpageController extends Controller
@@ -97,52 +100,54 @@ class LandingpageController extends Controller
     }
     public function store(Request $request,$room_id)
     {
+ 
                     // create the order
         $room = Room::find($room_id);
-        $checkavailability = Booking::where('room_id',$room->id)->orderBy('id','DESC')->first();
-      // dd($checkavailability,$checkavailability?->check_out_date < $request->check_in && $checkavailability?->check_in_date < $request->check_in);
-
-
-
-      // http://127.0.0.1:8000/booking-form/8
-        if($checkavailability){
-          if($checkavailability->check_out_date < $request->check_in && $checkavailability->check_in_date < $request->check_in){
-                    Booking::create([
-                    'user_id'=>auth()->user()->id,
-                    'room_id'=>$room->id,
-                    'name'=>$request->name,
-                    'email'=>$request->email,
-                    'address'=>$request->address,
-                    'contact'=>$request->contact,
-                    'check_in_date'=>$request->check_in,
-                    'check_out_date'=>$request->check_out,
-                    'no_of_guest'=>$request->guest,
-                ]);
-                Alert::success('Booking', 'Booking Successful');
-                return redirect()->route('website.rooms');
+        $fromDate=$request->check_in;
+        $toDate=$request->check_out;
+        $roomAvailability = Booking::where('room_id',$room->id)
+                            ->whereBetween('check_in_date',[$fromDate,$toDate])
+                            ->pluck('check_in_date');
+        ($roomAvailability);
+        
+        $period = CarbonPeriod::create($fromDate, $toDate);
+        // dd($period);
+        
+        // Iterate over the period
+        foreach ($period as $date) {
+          foreach($roomAvailability as $availableRoom){
+            // $dateToFormateYHD = 
+                if($availableRoom = date('Y-m-d',strtotime($date))){
+                  Alert::error('Opps !!', 'Room Not Available on this day');
+                  return redirect()->route('website.rooms');
+                }
           }
-          else{
-            Alert::error('sorry', 'room not available on this date');
-          return to_route('website.rooms'); 
-          }
-        }
-        else{
-          Booking::create([
+         $booking =  Booking::create([
             'user_id'=>auth()->user()->id,
             'room_id'=>$room->id,
             'name'=>$request->name,
             'email'=>$request->email,
             'address'=>$request->address,
             'contact'=>$request->contact,
-            'check_in_date'=>$request->check_in,
-            'check_out_date'=>$request->check_out,
+            'check_in_date'=>$date,
             'no_of_guest'=>$request->guest,
-        ]);
-        Alert::success('Booking', 'Booking Successful');
-                return redirect()->route('website.rooms');
-        }    
-      
+        ]); 
+        BookingDetails::create([
+          'booking_id'=>$booking->id,
+          'user_id'=>auth()->user()->id,
+          'room_id'=>$room->id,
+          'name'=>$request->name,
+          'email'=>$request->email,
+          'address'=>$request->address,
+          'contact'=>$request->contact,
+          'check_in_date'=>$date,
+          'no_of_guest'=>$request->guest,
+      ]);
+        }
+    Alert::success('Booking', 'Booking Successful');
+    return redirect()->route('website.rooms');
   }
+
   public function profile()
   {
     $booking = Booking::where('user_id',auth()->user()->id)->get();

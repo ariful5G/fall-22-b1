@@ -37,13 +37,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<form action="#" class="booking-form">
+				<form action="{{route('CheckAvailability')}}" class="booking-form">
 					<div class="row">
 						<div class="col-md-4 d-flex">
 							<div class="form-group p-4 align-self-stretch d-flex align-items-end">
 								<div class="wrap">
 									<label for="#">Check-in Date</label>
-									<input type="text" class="form-control checkin_date" placeholder="Check-in date">
+									<input type="text" class="form-control checkin_date" placeholder="Check-in date" name="check_in_date">
 								</div>
 							</div>
 						</div>
@@ -51,14 +51,13 @@
 							<div class="form-group p-4 align-self-stretch d-flex align-items-end">
 								<div class="wrap">
 									<label for="#">Check-out Date</label>
-									<input type="text" class="form-control checkout_date" placeholder="Check-out date">
+									<input type="text" class="form-control checkout_date" placeholder="Check-out date" name="check_out_date">
 								</div>
 							</div>
 						</div>
 						<div class="col-md d-flex">
 							<div class="form-group d-flex align-self-stretch">
-							<!-- <button type="button" class="btn btn-primary">Primary</button> -->
-							<a href="{{route('checkavailabily')}}"><input type="button" value="Check Availability" class="btn btn-primary py-3 px-4 align-self-stretch"></a>
+							<input type="submit" value="Check Availability" class="btn btn-primary py-3 px-4 align-self-stretch">
 							</div>
 						</div>
 					</div>
@@ -70,7 +69,7 @@
 
 <section class=" ftc-no-pb ftc-no-pt">
  
- <div class=""><!-- <div class="container"> -->
+ <div class="arif_container">
 	<div class="row">
 		<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
 				<div class="heading-section-wo-line pt-md-5 pl-md-5 mb-5">
@@ -131,14 +130,6 @@
 			@foreach($rooms as $room)
 			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 				<div class="room">
-					<!-- <a href="rooms.html" class="img d-flex justify-content-center align-items-center"style="background-image: url(images/room-2.jpg);">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="icon-search2"></span>
-							</div>
-						</a> -->
-					<div class="icon d-flex justify-content-center align-items-center">
-						<span class="icon-search2"></span>
-					</div>
 					<div class="text p-3 text-center">
 						<img src="{{url('/uploads/'.$room->room_image)}}" style="width:331px; height:auto;" alt="Room Image">
 						<h3 class="mb-3"><a href="rooms.html">{{$room->name}}</a></h3>
@@ -316,23 +307,23 @@
 
 			<div class="col-md-3 d-flex">
 				<div class="info bg-white p-4">
-					<p><span>Address:</span> <a href="tel://1234567920">cox's bazar,Bangladesh</a></p>
+					<p><span>Address:</span> <a href="tel://1234567920"> Kalatoli Road, Cox's Bazar.</a></p>
 				</div>
 			</div>
 
 			<div class="col-md-3 d-flex">
 				<div class="info bg-white p-4">
-					<p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+					<p><span>Phone:</span> <a href="tel://1234567920"> 01714652227,01709934732</a></p>
 				</div>
 			</div>
 			<div class="col-md-3 d-flex">
 				<div class="info bg-white p-4">
-					<p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+					<p><span>Email:</span> <a href="mailto:info@yoursite.com"> seapalace@gmail.com</a></p>
 				</div>
 			</div>
 			<div class="col-md-3 d-flex">
 				<div class="info bg-white p-4">
-					<p><span>Website</span> <a href="#">yoursite.com</a></p>
+					<p><span>Website</span> <a href="#"> hotelseapalacebd.com</a></p>
 				</div>
 			</div>
 		</div>

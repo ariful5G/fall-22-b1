@@ -2,18 +2,21 @@
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
+        
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('admin')}}">
+            <a class="nav-link active" aria-current="page" href="{{route('dashboard')}}">
+              <span data-feather="home"></span><i class="fa-solid fa-user-secret"></i>
+               Admin
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{route('admin')}}">
               <span data-feather="home"></span>
-              <i class="fa-solid fa-user-secret"></i> Admin Panel
+              <i class="fa-solid fa-house"></i> Dashboard
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('dashboard')}}">
-              <span data-feather="home"></span><i class="fa-solid fa-house"></i>
-              Dashboard
-            </a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{{route('hotel')}}">
             <span data-feather="file"></span><i class="fa-solid fa-hotel"></i>

@@ -1,36 +1,78 @@
 @extends('master')
 
 @section('content')
-<h1>Reports</h1>
+
+<h1>Reports- {{date('d-m-Y')}}</h1>
+
+<form action="{{route('booking.report.search')}}" method="get">
+<div class="row">
+    <div class="col-md-4">
+        <label for="">From date:</label>
+        <input name="from_date" type="date" class="form-control">
+
+    </div>
+    <div class="col-md-4">
+        <label for="">To date:</label>
+        <input name="to_date" type="date" class="form-control">
+    </div>
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-success">Search</button>
+    </div>
+</div>
+</form><br>
+
+<div id="bookingReport">
+
+<!-- <h1>Reports- {{date('d-m-Y')}}</h1> -->
+
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">User_id</th>
+            <th scope="col">Room_id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">No of Guest</th>
+            <th scope="col">Booking Date</th>
+            <!-- <th scope="col">Check In Date</th> -->
+            <!-- <th scope="col">Check Out Date</th> -->
         </tr>
         </thead>
+
         <tbody>
+        @if(isset($rooms))
+        @foreach($rooms as $data)
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>{{$data->user_id}}</td>
+            <td>{{$data->room_id}}</td>
+            <td>{{$data->name}}</td>
+            <td>{{$data->email}}</td>
+            <td>{{$data->address}}</td>
+            <td>{{$data->contact}}</td>
+            <td>{{$data->no_of_guest}}</td>
+            <td>{{$data->created_at}}</td>
+            <!-- <td>{{$data->check_in_date}}</td> -->
+            <!-- <td>{{$data->check_out_date}}</td> -->
+
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+        @endforeach
+        @endif
         </tbody>
     </table>
+</div>
+<button onclick="printDiv('bookingReport')" class="btn btn-success">Print</button>
+
+
+<script>
+    function printDiv(divId){
+        var printContents = document.getElementById(divId).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
 
 @endsection
