@@ -12,10 +12,10 @@
             <th scope="col">Email</th>
             <th scope="col">Address</th>
             <th scope="col">Contact No</th>
-            <th scope="col">No of Guest</th>
             <th scope="col">Check In Date</th>
             <th scope="col">Check Out Date</th>
             <th scope="col">No of Days</th>
+            <th scope="col">Total Amount</th>
             <th scope="col">Status</th>
             <!-- <th scope="col">Total Amount</th>
             <th scope="col">Due Amount</th>
@@ -33,10 +33,10 @@
             <td>{{$data->email}}</td>
             <td>{{$data->address}}</td>
             <td>{{$data->contact}}</td>
-            <td>{{$data->no_of_guest}}</td>
             <td>{{$data->check_in_date}}</td>
             <td>{{$data->check_out_date}}</td>
             <td>{{$data->days}}</td>
+            <td>{{$data->total_amount}}</td>
             <td>{{$data->status}}</td>
             <!-- <td>{{$data->amount}}</td> -->
             <td>

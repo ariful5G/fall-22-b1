@@ -7,6 +7,7 @@
         <thead>
         <tr>
             <th scope="col">Id</th>
+            <th scope="col">Name</th>
             <th scope="col">Address</th>
             <th scope="col">Email</th>
             <th scope="col">Contact</th>
@@ -18,6 +19,7 @@
             @foreach($hotel as $data)
         <tr>
             <td>{{$data->id}}</td>
+            <td>{{$data->Name}}</td>
             <td>{{$data->Address}}</td>
             <td>{{$data->Email}}</td>
             <td>{{$data->Contact}}</td>

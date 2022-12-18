@@ -53,25 +53,25 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('booking')}}">
-              <span data-feather="file"></span>
+              <span data-feather="file"></span><i class="fa-solid fa-key"></i>
               Booking
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('amenities')}}">
-              <span data-feather="file"><i class="fa-solid fa-user-group"></i>
+              <span data-feather="file"><i class="fa-solid fa-gift"></i>
               Amenities
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('payment')}}">
-              <span data-feather="file"></span><i class="fa-duotone fa-dollar-sign"></i>
+              <span data-feather="file"></span><i class="fa-solid fa-money-check-dollar"></i>
               Payment
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('reports')}}">
-              <span data-feather="file"></span><i class="fa-solid fa-user-group"></i>
+              <span data-feather="file"></span><i class="fa-solid fa-file-export"></i>
               Reports
             </a>
           </li>

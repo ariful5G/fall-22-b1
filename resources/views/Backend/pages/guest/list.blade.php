@@ -1,8 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Guest List</h1>
-<a href="{{route('guest.create')}}" class ="btn btn-success" > Guest Details</a>
+<h1>Guest Review</h1>
     <table class="table table-striped">
         <thead>
         <tr>

@@ -21,8 +21,9 @@ class LandingpageController extends Controller
   {
     $rooms=Room_type::all();
     $contact=Guest::all();
+    $hotel=Hotel::all();
     // dd($rooms);
-    return view('frontend.pages.home',compact('rooms','contact'));
+    return view('frontend.pages.home',compact('rooms','contact',('hotel')));
   }
 
   public function allrooms()
@@ -41,7 +42,8 @@ class LandingpageController extends Controller
   {
     $rooms=Room_type::all();
     $contact=Guest::all();
-    return view('frontend.pages.contact',compact('rooms','contact'));
+    $hotel=Hotel::all();
+    return view('frontend.pages.contact',compact('rooms','contact',('hotel')));
   }
 
   public function signup(request $request)
@@ -130,7 +132,7 @@ class LandingpageController extends Controller
             'address'=>$request->address,
             'contact'=>$request->contact,
             'check_in_date'=>$date,
-            'no_of_guest'=>$request->guest,
+            // 'no_of_guest'=>$request->guest,
         ]); 
         BookingDetails::create([
           'booking_id'=>$booking->id,
@@ -141,7 +143,7 @@ class LandingpageController extends Controller
           'address'=>$request->address,
           'contact'=>$request->contact,
           'check_in_date'=>$date,
-          'no_of_guest'=>$request->guest,
+          // 'no_of_guest'=>$request->guest,
       ]);
         }
     Alert::success('Booking', 'Booking Successful');

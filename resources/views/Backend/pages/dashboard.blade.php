@@ -8,5 +8,3 @@
 <h1>Total Rooms : <span>{{$totalRooms}}</span> </h1>
 <h1>Total Booking : <span>{{$totalBookings}}</span> </h1>
 @endsection
-
-

@@ -11,10 +11,10 @@
 <form method='post' action="{{route('admin.hotel.update',$hotel->id)}}">
     @method('put')
      @csrf
-     <!-- <div class="form-group">
-            <label for="name">Enter Name</label>
-            <input type="text"name="name" value="{{$hotel->name}}"class="form-control" id="name" placeholder="Enter Hotel Name">
-    </div> -->
+     <div class="form-group">
+            <label for="hotel_name">Enter Name</label>
+            <input type="text"name="name" value="{{$hotel->Name}}"class="form-control" id="name" placeholder="Enter Hotel Name">
+    </div>
     <div class= "form-group">
         <label for="address">Enter Address</label>
         <input type="text" name="address"value="{{$hotel->Address}}" class="form-control" id="price" placeholder="Enter Address">

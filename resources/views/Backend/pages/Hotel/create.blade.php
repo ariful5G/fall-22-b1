@@ -9,6 +9,10 @@
 
 <form method='post' action="{{route('hotel.store')}}">
      @csrf
+     <div class= "form-group">
+        <label for="hotel_name">Enter Address</label>
+        <input type="text" name="name" class="form-control" id="price" placeholder="Enter Hotel Name">
+    </div>
     <div class= "form-group">
         <label for="address">Enter Address</label>
         <input type="text" name="address" class="form-control" id="price" placeholder="Enter Address">

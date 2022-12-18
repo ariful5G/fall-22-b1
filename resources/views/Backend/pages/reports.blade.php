@@ -15,8 +15,8 @@
         <label for="">To date:</label>
         <input name="to_date" type="date" class="form-control">
     </div>
-    <div class="col-md-4">
-        <button type="submit" class="btn btn-success">Search</button>
+    <div class="col-md-4"> <br>
+   <button type="submit" class="btn btn-success">Search</button>
     </div>
 </div>
 </form><br>
