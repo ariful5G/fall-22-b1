@@ -12,7 +12,7 @@ class RoomController extends Controller
 {
     public function vip()
     { 
-        $room=Room::paginate(5);
+        $room=Room::paginate(4);
         return view("backend.pages.rooms.list",compact('room'));
     }
     public function createform()

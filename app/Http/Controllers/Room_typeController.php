@@ -55,6 +55,7 @@ class Room_typeController extends Controller
     public function roomView($roomView)
     {
         $room=Room_type::find($roomView);
+        
         return view('backend.pages.room_types.view',compact('room'));
     }
 

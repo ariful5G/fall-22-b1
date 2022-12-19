@@ -107,6 +107,7 @@ class LandingpageController extends Controller
         $room = Room::find($room_id);
         $fromDate=$request->check_in;
         $toDate=$request->check_out;
+
         $roomAvailability = Booking::where('room_id',$room->id)
                             ->whereBetween('check_in_date',[$fromDate,$toDate])
                             ->pluck('check_in_date');
@@ -132,7 +133,7 @@ class LandingpageController extends Controller
             'address'=>$request->address,
             'contact'=>$request->contact,
             'check_in_date'=>$date,
-            // 'no_of_guest'=>$request->guest,
+          
         ]); 
         BookingDetails::create([
           'booking_id'=>$booking->id,
@@ -143,7 +144,7 @@ class LandingpageController extends Controller
           'address'=>$request->address,
           'contact'=>$request->contact,
           'check_in_date'=>$date,
-          // 'no_of_guest'=>$request->guest,
+         
       ]);
         }
     Alert::success('Booking', 'Booking Successful');

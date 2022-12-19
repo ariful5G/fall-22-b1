@@ -23,7 +23,7 @@
                     <div class="booking-form">
                         <div class="booking-bg"></div>
 
-                        <form method='post' action="{{route('booking.store',$room->id)}}">
+                        <form method='post' action="{{route('pay.now',$room->id)}}">
                         @csrf
                             <div class="form-header">
                                 <h2>Reserve your room</h2>

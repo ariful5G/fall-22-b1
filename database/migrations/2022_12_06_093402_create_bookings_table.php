@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('email');
             $table->string('address');
             $table->string('contact');
-            // $table->integer('no_of_guest');
             $table->date('check_in_date');
             $table->integer('days')->nullable();
             $table->integer('total_amount')->nullable();

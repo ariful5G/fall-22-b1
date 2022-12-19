@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Models\Room;
+use App\Models\Booking;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
+use App\Models\BookingDetails;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Library\SslCommerz\SslCommerzNotification;
 
 class SslCommerzPaymentController extends Controller
@@ -19,19 +24,22 @@ class SslCommerzPaymentController extends Controller
         return view('exampleHosted');
     }
 
-    public function index(Request $request)
+    public function index(Request $request,$id)
     {
         # Here you have to receive all the order data to initate the payment.
         # Let's say, your oder transaction informations are saving in a table called "orders"
         # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
-
+        
+        
+        $room= Room::find($id);
+        // dd($room);
         $post_data = array();
-        $post_data['total_amount'] = '10'; # You cant not pay less than 10
+        $post_data['total_amount'] = $room->amount; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
         # CUSTOMER INFORMATION
-        $post_data['cus_name'] = 'Customer Name';
+        $post_data['cus_name'] = $request->name;
         $post_data['cus_email'] = 'customer@mail.com';
         $post_data['cus_add1'] = 'Customer Address';
         $post_data['cus_add2'] = "";
@@ -39,7 +47,7 @@ class SslCommerzPaymentController extends Controller
         $post_data['cus_state'] = "";
         $post_data['cus_postcode'] = "";
         $post_data['cus_country'] = "Bangladesh";
-        $post_data['cus_phone'] = '8801XXXXXXXXX';
+        $post_data['cus_phone'] = $request->contact;
         $post_data['cus_fax'] = "";
 
         # SHIPMENT INFORMATION
@@ -63,19 +71,50 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
 
-        #Before  going to initiate the payment order status need to insert or update as Pending.
-        $update_product = DB::table('orders')
-            ->where('transaction_id', $post_data['tran_id'])
-            ->updateOrInsert([
-                'name' => $post_data['cus_name'],
-                'email' => $post_data['cus_email'],
-                'phone' => $post_data['cus_phone'],
-                'amount' => $post_data['total_amount'],
-                'status' => 'Pending',
-                'address' => $post_data['cus_add1'],
-                'transaction_id' => $post_data['tran_id'],
-                'currency' => $post_data['currency']
-            ]);
+
+
+
+
+
+        $room = Room::find($id);
+        $fromDate=$request->check_in;
+        $toDate=$request->check_out;
+
+        // $totalDays = date_diff($fromDate,$toDate);
+
+        // dd($totalDays);
+
+        $roomAvailability = Booking::where('room_id',$room->id)
+                            ->whereBetween('check_in_date',[$fromDate,$toDate])
+                            ->pluck('check_in_date');
+        ($roomAvailability);
+        
+        $period = CarbonPeriod::create($fromDate, $toDate);
+        // dd($period);
+        
+        // Iterate over the period
+        foreach ($period as $date) {
+          foreach($roomAvailability as $availableRoom){
+            // $dateToFormateYHD = 
+                if($availableRoom = date('Y-m-d',strtotime($date))){
+                  Alert::error('Opps !!', 'Room Not Available on this day');
+                  return redirect()->route('website.rooms');
+                }
+          }
+         $booking =  Booking::create([
+            'user_id'=>auth()->user()->id,
+            'room_id'=>$room->id,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'address'=>$request->address,
+            'contact'=>$request->contact,
+            'check_in_date'=>$date,
+            // "days"=>$totalDays
+           
+        ]); 
+       
+        }
+    
 
         $sslc = new SslCommerzNotification();
         # initiate(Transaction Data , false: Redirect to SSLCOMMERZ gateway/ true: Show all the Payement gateway here )

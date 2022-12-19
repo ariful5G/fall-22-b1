@@ -13,10 +13,7 @@ class GuestController extends Controller
       $guest = Guest::all();
         return view("backend.pages.guest.list", compact('guest'));
     }
-    public function create()
-    {
-        return view("backend.pages.guest.create");
-    }
+
     public function store(request $request)
     {
       //dd($request->all());
