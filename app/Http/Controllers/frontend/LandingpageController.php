@@ -43,7 +43,7 @@ class LandingpageController extends Controller
     $rooms=Room_type::all();
     $contact=Guest::all();
     $hotel=Hotel::all();
-    return view('frontend.pages.contact',compact('rooms','contact',('hotel')));
+    return view('frontend.pages.contact',compact('rooms','contact','hotel'));
   }
 
   public function signup(request $request)
@@ -102,6 +102,13 @@ class LandingpageController extends Controller
     }
     public function store(Request $request,$room_id)
     {
+
+      $request->validate(([
+        
+        "check_in"=>"date|after_or_equal:now",
+        "check_out"=>"date|after:check_in",
+
+      ]));
  
                     // create the order
         $room = Room::find($room_id);

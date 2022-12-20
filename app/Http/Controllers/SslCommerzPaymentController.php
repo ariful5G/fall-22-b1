@@ -80,9 +80,7 @@ class SslCommerzPaymentController extends Controller
         $fromDate=$request->check_in;
         $toDate=$request->check_out;
 
-        // $totalDays = date_diff($fromDate,$toDate);
-
-        // dd($totalDays);
+        // 
 
         $roomAvailability = Booking::where('room_id',$room->id)
                             ->whereBetween('check_in_date',[$fromDate,$toDate])
@@ -90,8 +88,9 @@ class SslCommerzPaymentController extends Controller
         ($roomAvailability);
         
         $period = CarbonPeriod::create($fromDate, $toDate);
-        // dd($period);
-        
+       
+
+        $totalDays = count($period);
         // Iterate over the period
         foreach ($period as $date) {
           foreach($roomAvailability as $availableRoom){
@@ -109,7 +108,8 @@ class SslCommerzPaymentController extends Controller
             'address'=>$request->address,
             'contact'=>$request->contact,
             'check_in_date'=>$date,
-            // "days"=>$totalDays
+            "days"=>$totalDays,
+            'total_amount'=>$post_data['total_amount']
            
         ]); 
        

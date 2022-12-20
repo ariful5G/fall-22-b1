@@ -5,26 +5,25 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Check In Date</th>
             <th scope="col">Total Amount</th>
-            <th scope="col">Paid Amount</th>
-            <th scope="col">Due Amount</th>
-            <th scope="col">Status</th>
         </tr>
         </thead>
         <tbody>
+        @foreach($payment as $data)
         <tr>
-            <th scope="row">1</th>
-            <td>Tufan</td>
-            <td>tufan@gmail.com</td>
-            <td>15000</td>
-            <td>5000</td>
-            <td>10000</td>
-            <td>Due</td>
+            <td>{{$data->name}}</td>
+            <td>{{$data->email}}</td>
+            <td>{{$data->address}}</td>
+            <td>{{$data->contact}}</td>
+            <td>{{$data->check_in_date}}</td>
+            <td>{{$data->total_amount}}</td>
         </tr>
-    
+    @endforeach
         </tbody>
     </table>
 

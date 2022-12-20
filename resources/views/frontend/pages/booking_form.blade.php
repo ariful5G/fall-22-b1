@@ -44,12 +44,12 @@
                             </div>
                             <div class="form-group">
                                 <span class="form-label">Name</span>
-                                <input class="form-control" type="text" name="name" placeholder="Enter your name">
+                                <input class="form-control" type="text" name="name" required placeholder="Enter your name">
                             </div>
 
                             <div class="form-group">
                                 <span class="form-label">Email</span>
-                                <input class="form-control" type="email" name="email" placeholder="Enter your email">
+                                <input class="form-control" type="email" required name="email" placeholder="Enter your email">
                             </div>
                             <div class="form-group">
                                 <span class="form-label">Address</span>

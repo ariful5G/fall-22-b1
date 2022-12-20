@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('room_id');
+            $table->foreignId('room_id')->constrained('rooms')->restrictOnDelete();
             $table->string('name');
             $table->string('email');
             $table->string('address');

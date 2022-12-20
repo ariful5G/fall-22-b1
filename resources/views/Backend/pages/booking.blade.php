@@ -7,7 +7,7 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">User_id</th>
-            <th scope="col">Room_id</th>
+            <th scope="col">Room_Name</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Address</th>
@@ -15,7 +15,7 @@
             <th scope="col">Check In Date</th>
             <th scope="col">Check Out Date</th>
             <th scope="col">No of Days</th>
-            <th scope="col">Total Amount</th>
+            <th scope="col">Amount</th>
             <th scope="col">Status</th>
             <!-- <th scope="col">Total Amount</th>
             <th scope="col">Due Amount</th>
@@ -25,10 +25,11 @@
         </thead>
         <tbody>
         @foreach($rooms as $data)
+
         <tr>
             <td>{{$data->id}}</td>
             <td>{{$data->user_id}}</td>
-            <td>{{$data->room_id}}</td>
+            <td>{{$data->roomRelation->name}}</td>
             <td>{{$data->name}}</td>
             <td>{{$data->email}}</td>
             <td>{{$data->address}}</td>
