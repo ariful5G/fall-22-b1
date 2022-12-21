@@ -11,6 +11,7 @@
             <th scope="col">Contact</th>
             <th scope="col">Check In Date</th>
             <th scope="col">Total Amount</th>
+            <th scope="col">Status</th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
             <td>{{$data->contact}}</td>
             <td>{{$data->check_in_date}}</td>
             <td>{{$data->total_amount}}</td>
+            <td>Paid</td>
         </tr>
     @endforeach
         </tbody>

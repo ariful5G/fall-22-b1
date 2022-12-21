@@ -53,11 +53,11 @@
                             </div>
                             <div class="form-group">
                                 <span class="form-label">Address</span>
-                                <input class="form-control" type="text" name="address" placeholder="Enter your name">
+                                <input class="form-control" type="text" name="address" required placeholder="Enter your name">
                             </div>
                             <div class="form-group">
                                 <span class="form-label">Phone</span>
-                                <input class="form-control" type="tel" name="contact" placeholder="Enter your phone number">
+                                <input class="form-control" type="tel" name="contact" required placeholder="Enter your phone number">
                             </div>
                             
                             <div class="form-btn">

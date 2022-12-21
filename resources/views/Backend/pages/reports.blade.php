@@ -28,14 +28,16 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <!-- <th scope="col">Id</th> -->
             <th scope="col">User_id</th>
-            <th scope="col">Room_id</th>
-            <th scope="col">Name</th>
+            <th scope="col">User_Name</th>
             <th scope="col">Email</th>
             <th scope="col">Address</th>
             <th scope="col">Contact No</th>
-            <th scope="col">No of Guest</th>
+            <th scope="col">Room_Name</th>
+            <th scope="col">Amount</th>
             <th scope="col">Booking Date</th>
+            <!-- <th scope="col">No of Guest</th> -->
             <!-- <th scope="col">Check In Date</th> -->
             <!-- <th scope="col">Check Out Date</th> -->
         </tr>
@@ -45,14 +47,16 @@
         @if(isset($rooms))
         @foreach($rooms as $data)
         <tr>
+            <!-- <td>{{$data->id}}</td> -->
             <td>{{$data->user_id}}</td>
-            <td>{{$data->room_id}}</td>
             <td>{{$data->name}}</td>
             <td>{{$data->email}}</td>
             <td>{{$data->address}}</td>
             <td>{{$data->contact}}</td>
-            <td>{{$data->no_of_guest}}</td>
-            <td>{{$data->created_at}}</td>
+            <td>{{$data->roomRelation->name}}</td>
+            <td>{{$data->total_amount}}</td>
+            <td>{{$data->check_in_date}}</td>
+            <!-- <td>{{$data->no_of_guest}}</td> -->
             <!-- <td>{{$data->check_in_date}}</td> -->
             <!-- <td>{{$data->check_out_date}}</td> -->
 

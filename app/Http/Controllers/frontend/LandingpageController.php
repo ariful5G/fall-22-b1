@@ -104,7 +104,7 @@ class LandingpageController extends Controller
     {
 
       $request->validate(([
-        
+          
         "check_in"=>"date|after_or_equal:now",
         "check_out"=>"date|after:check_in",
 

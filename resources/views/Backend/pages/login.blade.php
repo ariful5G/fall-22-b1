@@ -53,14 +53,14 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username/Email" name="email">
+						<input type="text" class="form-control" placeholder="username/Email"required name="email">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password" name="password">
+						<input type="password" class="form-control" placeholder="password"required name="password">
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember Me

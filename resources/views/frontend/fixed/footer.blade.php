@@ -4,7 +4,7 @@
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Hotel Sea Place</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <p>Hotel Sea Palace Limited the house for elites, ensures accommodation during your visit to make your experiences enjoyable & memorable.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -16,10 +16,10 @@
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Useful Links</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Blog</a></li>
-                <li><a href="#" class="py-2 d-block">Rooms</a></li>
-                <li><a href="#" class="py-2 d-block">Amenities</a></li>
-                <li><a href="#" class="py-2 d-block">Gift Card</a></li>
+                <li><a href="{{route('website')}}" class="py-2 d-block">Home</a></li>
+                <li><a href="{{route('website.rooms')}}" class="py-2 d-block">Rooms</a></li>
+                <li><a href="{{route('website.contact')}}" class="py-2 d-block">Contact</a></li>
+                <li><a href="{{route('website.about')}}" class="py-2 d-block">About</a></li>
               </ul>
             </div>
           </div>
@@ -28,9 +28,9 @@
               <h2 class="ftco-heading-2">Privacy</h2>
               <ul class="list-unstyled">
                 <li><a href="#" class="py-2 d-block">Career</a></li>
-                <li><a href="#" class="py-2 d-block">About Us</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-                <li><a href="#" class="py-2 d-block">Services</a></li>
+                <li><a href="{{route('website.about')}}" class="py-2 d-block">About Us</a></li>
+                <li><a href="{{route('website.contact')}}" class="py-2 d-block">Contact Us</a></li>
+                <li><a href="{{route('website')}}" class="py-2 d-block">Services</a></li>
               </ul>
             </div>
           </div>
@@ -39,9 +39,9 @@
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text"> Kalatoli Road, Cox's Bazar, Bangladesh</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+880 1786603980</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@seaplace.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
@@ -51,8 +51,8 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by 
-  <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Develop by Md. Ariful Islam <i class="icon-heart color-danger" aria-hidden="true"></i> <br>Software Development Company 
+  <a href="https://www.kodeeo.com/" target="_blank">Kodeeo Limited</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

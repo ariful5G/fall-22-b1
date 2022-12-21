@@ -11,25 +11,29 @@
 <form method='POST' action="{{route('room_type.store')}}" enctype="multipart/form-data">
      @csrf
      <div class="form-group">
-            <label for="name">Enter Name</label>
-            <input type="text"name="room_name"required class="form-control" id="name" placeholder="Enter room type">
-    </div>
-    <div class= "form-group">
-        <label for="amount">Amount</label>
-        <input type="number" name="amount" class="form-control" id="price" placeholder="Enter Amount">
-    </div>
+          <label for="name">Enter Name</label>
+          <input type="text" name="room_name" required class="form-control" id="name" placeholder="Enter room type">
+     </div>
 
-    <div class="form-group">
+
+     <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" name="amount" class="form-control" id="price" required placeholder="Enter Amount">
+     </div>
+
+     <!-- <div class="form-group">
           <label for="room_type_description">Description</label>
           <textarea class="form-control" name="description" id=""></textarea>
-    <div>
-        <label for="image">Upload Image</label>
-        <input type="file" name="image" class="form-control"id="image">
-   </div>
-   <div><br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-   <input type="reset" class="btn btn-secondary">
-   </div>
+     <div> -->
+     <div>
+          <label for="image">Upload Image</label>
+          <input type="file" name="image" class="form-control" id="image">
+     </div>
+
+     <div><br>
+           <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="reset" class="btn btn-secondary">
+     </div>
 
 </form>
 

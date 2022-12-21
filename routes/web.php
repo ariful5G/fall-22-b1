@@ -84,12 +84,10 @@ Route::get('/panel',[AdminController::class,'home'])->name('dashboard');
 Route::get('/',[MasterController::class,'home'])->name('admin');
 
 Route::get('/hotel',[HotelController::class,'Home'])->name('hotel');
-Route::get('/Hotel/create',[HotelController::class,'create'])->name('hotel.create');
 Route::post('/hotel/store',[HotelController::class,'store'])->name('hotel.store');
-Route::get('/hotel/delete/{holelInfoDelete}',[HotelController::class,'infoDelete'])->name('hotelinfo.delete');
 Route::get('/hotel/edit/{hotelEdit}',[HotelController::class,'hotelEdit'])->name('admin.hotel.edit');
 Route::put('/hotel/edit/{hotelUpdate}',[HotelController::class,'hotelUpdate'])->name('admin.hotel.update');
-Route::get('/hotel/view/{hotelView}',[HotelController::class,'hotelView'])->name('admin.hotel.view');
+
 
 Route::get('/room_type',[Room_typeController::class,'list'])->name('room_type');
 Route::get('/roomtype/Details',[Room_typeController::class,'CreateForm'])->name('room_type.Details');
@@ -107,7 +105,6 @@ Route::get('/room/edit/{roomEdit}',[RoomController::class,'roomEdit'])->name('ro
 Route::put('/room/edit/{roomUpdate}',[RoomController::class,'Update'])->name('room.update');
 
 Route::get('/booking',[BookingController::class,'list'])->name('booking');
-Route::get('/booking/delete/{bookingDelete}',[BookingController::class,'bookingDelete'])->name('booking.delete');
 
 Route::get('/amenities',[AmenitiesController::class,'list'])->name('amenities');
 Route::get('/amenities/create',[AmenitiesController::class,'create'])->name('amenities.create');

@@ -10,12 +10,9 @@ class HotelController extends Controller
     public function Home()
     {
         $hotel=Hotel::all();
-        return view("backend.pages.hotel.list",compact('hotel'));
+        return view("backend.pages.hotel.create",compact('hotel'));
     }
-    public function create()
-    {
-        return view("backend.pages.hotel.create");
-    }
+
     public function store(Request $request)
     {
         Hotel::create([
@@ -28,11 +25,7 @@ class HotelController extends Controller
         ]);
         return redirect()->back()->with('message','Data added successfully.');
     }
-    public function infoDelete($holelInfoDelete)
-    {
-        Hotel::find($holelInfoDelete)->delete();
-        return redirect()->back()->with('message','Data delete successfully.');
-    }
+ 
     public function hotelEdit($hotelEdit)
     {
         $hotel=Hotel::find($hotelEdit);
@@ -52,9 +45,5 @@ class HotelController extends Controller
         return redirect()->route('hotel')->with('message','Update successfull.');
 
     }
-    public function hotelView($hotelView)
-    {
-        $hotel=Hotel::find($hotelView);
-        return view('backend.pages.hotel.sk',compact('hotel'));
-    }
+  
 }

@@ -11,10 +11,7 @@
 <form method='post' action="{{route('admin.hotel.update',$hotel->id)}}">
     @method('put')
      @csrf
-     <div class="form-group">
-            <label for="hotel_name">Enter Name</label>
-            <input type="text"name="name" value="{{$hotel->Name}}"class="form-control" id="name" placeholder="Enter Hotel Name">
-    </div>
+   
     <div class= "form-group">
         <label for="address">Enter Address</label>
         <input type="text" name="address"value="{{$hotel->Address}}" class="form-control" id="price" placeholder="Enter Address">
@@ -29,9 +26,9 @@
         <input type="number" name="contact"value="{{$hotel->Contact}}" class="form-control" id="price" placeholder="Enter Contact No">
     </div>
     <div class= "form-group">
-        <label for="website">Enter City</label>
+        <label for="website">Enter Website</label>
         <input type="text" name="website"value="{{$hotel->Website}}" class="form-control" id="price" placeholder="Enter City">
-    </div>
+    </div><br>
    <div>
         <button type="submit" class="btn btn-primary">Update</button>
    <input type="reset" class="btn btn-secondary">

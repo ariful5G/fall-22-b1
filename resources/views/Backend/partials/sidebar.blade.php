@@ -57,12 +57,12 @@
               Booking
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link {{ (request()->is('admin/amenities*')) ? 'active' : '' }}" href="{{route('amenities')}}">
               <span data-feather="file"><i class="fa-solid fa-gift"></i>
               Amenities
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link {{ (request()->is('admin/payment*')) ? 'active' : '' }}" href="{{route('payment')}}">
               <span data-feather="file"></span><i class="fa-solid fa-money-check-dollar"></i>

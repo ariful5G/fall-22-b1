@@ -48,7 +48,7 @@
 		            <div class="block-18 text-center">
 		              <div class="text">
 		                <strong class="number" data-number="50">0</strong>
-		                <span>Destination</span>
+		                <span>Users</span>
 		              </div>
 		            </div>
 		          </div>

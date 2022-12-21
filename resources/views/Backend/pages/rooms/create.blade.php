@@ -15,7 +15,7 @@
     </div><br>
     <div class="form-group">
             <label for="room_name">Room Name</label>
-            <input type="text"name="room_name"required class="form-control" id="name" placeholder="Enter room name">
+            <input type="text"name="room_name"required class="form-control" id="name"  placeholder="Enter room name">
     </div>
     <div class="form-group">
             <label for="room_no">Room No</label>
@@ -24,17 +24,17 @@
 
      <div class="form-group">
             <label for="type">Type</label>
-            <input type="text"name="name" class="form-control" id="name" placeholder="Enter Room Type">
+            <input type="text"name="name" required class="form-control" id="name" placeholder="Enter Room Type">
     </div>
  
     <div class= "form-group">
         <label for="amount">Amount</label>
-        <input type="number" name="amount" class="form-control" id="price" placeholder="Enter Amount">
+        <input type="number" name="amount"required class="form-control" id="price" placeholder="Enter Amount">
     </div>
    
       <div class= "form-group">
         <label for="accomodate">Accomodate</label>
-        <input type="number" name="accomodate" class="form-control" id="price" placeholder="Number of accomodation">
+        <input type="number" name="accomodate"required class="form-control" id="price" placeholder="Number of accomodation">
     </div>
     <div>
         <label for="Room_image">Upload Room Image</label>

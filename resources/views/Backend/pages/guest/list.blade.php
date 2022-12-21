@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Guest Review</h1>
+<h1>Guest Comments</h1>
     <table class="table table-striped">
         <thead>
         <tr>

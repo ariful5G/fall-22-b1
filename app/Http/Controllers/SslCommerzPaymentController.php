@@ -72,9 +72,12 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_d'] = "ref004";
 
 
-
-
-
+        $request->validate(([
+          
+            "check_in"=>"date|after_or_equal:now",
+            "check_out"=>"date|after:check_in",
+    
+          ]));
 
         $room = Room::find($id);
         $fromDate=$request->check_in;

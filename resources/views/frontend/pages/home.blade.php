@@ -82,7 +82,10 @@
 				<p>Standing around 6 acres of land, Hotel Sea Palace Limited the house for elites, ensures accommodation during your visit to make your experiences enjoyable & memorable.
 				We assure  unique hospitality that our guests can have ensured recreation after sunbathing and swimming over the beach.
 				Surrounded by screen beauty Hotel Sea Palace Limited is located at Kalatoli road 10 minutes driving -- distance from the airport & 200 yard away from Kalatoli Beach.</p>
-				<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+				<p>During thè successful joumey of Hotel Sea Palace Ltd, it has build it’s business relation with different corporate houses of Bangladesh.
+				Hotel Sea Palace Ltd has already been reputed as a pioneer hotel in Cox’s Bazaar to thè corporate clients of thè country. 
+				Hotel’s state of thè art level and warm hospitality Services has made this hotel a unique place in thè MEEC (Meeting, Event, Exposition and Conference) industry in thè country.
+				This hotel has been always responding fully to thè client’s leisure and business requirements.</p>
 					<ul class="ftco-social d-flex">
 						<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 						<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -159,7 +162,7 @@
 						</div>
 					</div>
 					<div class="media-body p-2 mt-2">
-						<h3 class="heading mb-3">25/7 Front Desk</h3>
+						<h3 class="heading mb-3"> Front Desk</h3>
 						<p>A small river named Duden flows by their place and supplies.</p>
 					</div>
 				</div>
@@ -240,7 +243,7 @@
 						<div class="block-18 text-center">
 							<div class="text">
 								<strong class="number" data-number="10">0</strong>
-								<span>Destination</span>
+								<span>Users</span>
 							</div>
 						</div>
 					</div>
@@ -260,35 +263,35 @@
 		</div>
 		<div class="row no-gutters">
 			<div class="col-sm-12 col-md ftco-animate">
-				<a href="/frontend/images/insta-1.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/image_5.jpg');">
+				<a href="/frontend/images/image_5.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/image_5.jpg');">
 					<div class="icon d-flex justify-content-center">
 						<span class="icon-instagram align-self-center"></span>
 					</div>
 				</a>
 			</div>
 			<div class="col-sm-12 col-md ftco-animate">
-				<a href="/frontend/images/insta-2.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/image_6.jpg');">
+				<a href="/frontend/images/image_6.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/image_6.jpg');">
 					<div class="icon d-flex justify-content-center">
 						<span class="icon-instagram align-self-center"></span>
 					</div>
 				</a>
 			</div>
 			<div class="col-sm-12 col-md ftco-animate">
-				<a href="/frontend/images/insta-3.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/image_8.jpg');">
+				<a href="/frontend/images/image_8.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/image_8.jpg');">
 					<div class="icon d-flex justify-content-center">
 						<span class="icon-instagram align-self-center"></span>
 					</div>
 				</a>
 			</div>
 			<div class="col-sm-12 col-md ftco-animate">
-				<a href="/frontend/images/insta-4.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/insta-3.jpg');">
+				<a href="/frontend/images/insta-3.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/insta-3.jpg');">
 					<div class="icon d-flex justify-content-center">
 						<span class="icon-instagram align-self-center"></span>
 					</div>
 				</a>
 			</div>
 			<div class="col-sm-12 col-md ftco-animate">
-				<a href="/frontend/images/insta-5.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/insta-4.jpg');">
+				<a href="/frontend/images/insta-4.jpg" class="insta-img image-popup" style="background-image: url('/frontend/images/insta-4.jpg');">
 					<div class="icon d-flex justify-content-center">
 						<span class="icon-instagram align-self-center"></span>
 					</div>
@@ -325,7 +328,7 @@
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-        @foreach($hotel as $data)<p><span>Website: </span> <a href="#">{{$data->Website}}</a></p>@endforeach
+        @foreach($hotel as $data)<p><span>Website: <br></span> <a href="#">{{$data->Website}}</a></p>@endforeach
         </div>
       </div>
     </div>

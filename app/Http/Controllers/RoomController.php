@@ -77,6 +77,13 @@ class RoomController extends Controller
     }
     public function search(Request $req)
     { 
+
+        $req->validate(([
+          
+            "check_in_date"=>"date|after_or_equal:now",
+            "check_out"=>"date|after:check_in",
+    
+          ]));
         // dd($req->check_in_date);
         $newDate = Carbon::createFromFormat('m/d/Y',$req->check_in_date)->format('Y-m-d');
 
