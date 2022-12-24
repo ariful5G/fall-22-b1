@@ -94,12 +94,6 @@ if($errors->any()){
 				Hotel Sea Palace Ltd has already been reputed as a pioneer hotel in Cox’s Bazaar to thè corporate clients of thè country. 
 				Hotel’s state of thè art level and warm hospitality Services has made this hotel a unique place in thè MEEC (Meeting, Event, Exposition and Conference) industry in thè country.
 				This hotel has been always responding fully to thè client’s leisure and business requirements.</p>
-					<ul class="ftco-social d-flex">
-						<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-					</ul>
 	           </div>
             </div>
 		
@@ -157,111 +151,7 @@ if($errors->any()){
 	</div>
 </section>
 
-
-
-<!-- <section class="ftco-section">
-	<div class="container">
-		<div class="row d-flex">
-			<div class="col-md-3 d-flex align-self-stretch ftco-animate">
-				<div class="media block-6 services py-4 d-block text-center">
-					<div class="d-flex justify-content-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-reception-bell"></span>
-						</div>
-					</div>
-					<div class="media-body p-2 mt-2">
-						<h3 class="heading mb-3"> Front Desk</h3>
-						<p>A small river named Duden flows by their place and supplies.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 d-flex align-self-stretch ftco-animate">
-				<div class="media block-6 services py-4 d-block text-center">
-					<div class="d-flex justify-content-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-serving-dish"></span>
-						</div>
-					</div>
-					<div class="media-body p-2 mt-2">
-						<h3 class="heading mb-3">Restaurant Bar</h3>
-						<p>A small river named Duden flows by their place and supplies.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 d-flex align-sel Searchf-stretch ftco-animate">
-				<div class="media block-6 services py-4 d-block text-center">
-					<div class="d-flex justify-content-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-car"></span>
-						</div>
-					</div>
-					<div class="media-body p-2 mt-2">
-						<h3 class="heading mb-3">Transfer Services</h3>
-						<p>A small river named Duden flows by their place and supplies.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 d-flex align-self-stretch ftco-animate">
-				<div class="media block-6 services py-4 d-block text-center">
-					<div class="d-flex justify-content-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-spa"></span>
-						</div>
-					</div>
-					<div class="media-body p-2 mt-2">
-						<h3 class="heading mb-3">Spa Suites</h3>
-						<p>A small river named Duden flows by their place and supplies.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-10">
-				<div class="row">
-					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-						<div class="block-18 text-center">
-							<div class="text">
-								<strong class="number" data-number="400">0</strong>
-								<span>Happy Guests</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-						<div class="block-18 text-center">
-							<div class="text">
-								<strong class="number" data-number="200">0</strong>
-								<span>Rooms</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-						<div class="block-18 text-center">
-							<div class="text">
-								<strong class="number" data-number="100">0</strong>
-								<span>Staffs</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-						<div class="block-18 text-center">
-							<div class="text">
-								<strong class="number" data-number="50">0</strong>
-								<span>Users</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="instagram">
+<!-- <section class="instagram">
 	<div class="container-fluid">
 		<div class="row no-gutters justify-content-center pb-5">
 			<div class="col-md-7 text-center heading-section ftco-animate">
@@ -307,7 +197,7 @@ if($errors->any()){
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <section class="ftco-section contact-section bg-light">
   <div class="container">

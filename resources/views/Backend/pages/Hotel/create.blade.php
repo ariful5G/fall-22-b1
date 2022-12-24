@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Hotel Information</h1>
+<h1>Add Hotel Information</h1>
 
 @if(session()->has('message'))
 <p class="alert alert-success">{{session()->get('message')}}</p>

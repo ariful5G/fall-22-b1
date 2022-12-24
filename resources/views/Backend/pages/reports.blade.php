@@ -35,7 +35,8 @@
             <th scope="col">Address</th>
             <th scope="col">Contact No</th>
             <th scope="col">Room_Name</th>
-            <th scope="col">Amount</th>
+            <th scope="col">Total Amount</th>
+            <th scope="col">Paid Amount</th>
             <th scope="col">Booking Date</th>
             <!-- <th scope="col">No of Guest</th> -->
             <!-- <th scope="col">Check In Date</th> -->
@@ -54,8 +55,9 @@
             <td>{{$data->address}}</td>
             <td>{{$data->contact}}</td>
             <td>{{$data->roomRelation->name}}</td>
+            <td>{{$data->total_amount*$data->days}}</td>
             <td>{{$data->total_amount}}</td>
-            <td>{{$data->check_in_date}}</td>
+            <td>{{$data->created_at}}</td>
             <!-- <td>{{$data->no_of_guest}}</td> -->
             <!-- <td>{{$data->check_in_date}}</td> -->
             <!-- <td>{{$data->check_out_date}}</td> -->

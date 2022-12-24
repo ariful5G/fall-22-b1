@@ -34,12 +34,6 @@
 				Hotel Sea Palace Ltd has already been reputed as a pioneer hotel in Cox’s Bazaar to thè corporate clients of thè country. 
 				Hotel’s state of thè art level and warm hospitality Services has made this hotel a unique place in thè MEEC (Meeting, Event, Exposition and Conference) industry in thè country.
 				This hotel has been always responding fully to thè client’s leisure and business requirements.</p>
-					<ul class="ftco-social d-flex">
-						<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-					</ul>
 	           </div>
             </div>
 		
@@ -68,7 +62,7 @@
 	</div>
 </section>
 
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_2.jpg);">
+<!-- <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_2.jpg);">
     	<div class="container">
     		<div class="row justify-content-center">
     			<div class="col-md-10">
@@ -109,6 +103,6 @@
 	        </div>
         </div>
     	</div>
-    </section>
+</section> -->
 
     @endsection

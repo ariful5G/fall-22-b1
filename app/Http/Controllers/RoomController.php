@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\BookingDetails;
 use App\Models\Room;
 use App\Models\Room_type;
 use Carbon\Carbon;
@@ -95,7 +96,7 @@ class RoomController extends Controller
         // dd($req->check_in_date);
         $newDate = Carbon::createFromFormat('m/d/Y',$req->check_in_date)->format('Y-m-d');
 
-        $bookings=Booking::whereDate("check_in_date",$newDate)->pluck("room_id")->toArray();
+        $bookings=BookingDetails::whereDate("check_in_date",$newDate)->pluck("room_id")->toArray();
         $rooms = Room::whereNotIn("id",$bookings)->get();
         return view("frontend.pages.available_room",compact('rooms'));
     }

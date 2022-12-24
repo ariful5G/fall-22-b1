@@ -2,6 +2,11 @@
 
 @section('content')
 <h1>Room List</h1>
+
+@if(session()->has('message'))
+<p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
+
 <a href="{{route('rooms.create')}}"class="btn btn-success">Add Rooms</a>
 <table class="table">
         <thead>

@@ -26,10 +26,6 @@
           <input type="number" name="amount" class="form-control" id="price" required placeholder="Enter Amount">
      </div>
 
-     <!-- <div class="form-group">
-          <label for="room_type_description">Description</label>
-          <textarea class="form-control" name="description" id=""></textarea>
-     <div> -->
      <div>
           <label for="image">Upload Image</label>
           <input type="file" name="image" class="form-control" id="image">

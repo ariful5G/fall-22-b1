@@ -13,11 +13,6 @@
             @foreach($rooms as $room)
     			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
     				<div class="room">
-    					<!-- <a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="background-image: url('/frontend/images/room-1.jpg');">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-    					</a> -->
                         <h2>Single room view</h2>
     					<div class="text p-3 text-center">
                         <img src="{{url('/uploads/'.$room->room_image)}}" style="width:331px; height:auto;" alt="Room Image">

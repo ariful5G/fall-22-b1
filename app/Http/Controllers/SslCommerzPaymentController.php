@@ -101,6 +101,8 @@ class SslCommerzPaymentController extends Controller
             'room_id'=>$room->id,
             'name'=>$request->name,
             'email'=>$request->email,
+            'address'=>$request->address,
+            'contact'=>$request->contact,
             "days"=>$totalDays,
             'total_amount'=>$post_data['total_amount']
            

@@ -85,9 +85,6 @@
 						</div>
 						<input type="password" required class="form-control" placeholder="Please Enter Your Password" name="password">
 					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember
-					</div>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-primary">Login</button>	
 					</div>

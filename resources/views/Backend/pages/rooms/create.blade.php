@@ -2,15 +2,16 @@
 
 @section('content')
 <h1>Add Room</h1>
-@if($errors->any())
-    	    @foreach($errors->all() as $message)
-        	<p class="alert alert-danger">{{$message}}</p>
-       	@endforeach
-       	@endif
 
 @if(session()->has('message'))
 <p class="alert alert-success">{{session()->get('message')}}</p>
 @endif
+
+        @if($errors->any())
+    	    @foreach($errors->all() as $message)
+        	<p class="alert alert-danger">{{$message}}</p>
+       	@endforeach
+       	@endif
 
 <form method='post' action="{{route('room.store')}}" enctype="multipart/form-data">
      @csrf

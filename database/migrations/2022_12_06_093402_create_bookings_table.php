@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignId('room_id')->constrained('rooms')->restrictOnDelete();
             $table->string('name');
             $table->string('email');
+            $table->string('address');
+            $table->integer('contact');
             $table->integer('days')->nullable();
             $table->integer('total_amount')->nullable();
             $table->string('status')->default('pending');

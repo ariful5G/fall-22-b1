@@ -19,10 +19,7 @@
         <label for="amount">Amount</label>
         <input type="number"value="{{$room->amount}}" name="amount" class="form-control" id="price" placeholder="Enter Amount">
     </div>
-    <!-- <div class="form-group">
-          <label for="room_type_description">Description</label>
-          <textarea class="form-control" name="description" id=""></textarea>
-    <div> -->
+
     <div>
         <label for="image">Upload Image</label>
         <input type="file"value="{{$room->room_image}}" name="image" required class="form-control"id="image">
