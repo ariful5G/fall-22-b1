@@ -23,7 +23,7 @@
         <tr>
             <td>{{$key + $room->firstItem()}}</td>
             <td>
-            <img src="{{url('/uploads/'.$data->room_image)}}"style="height:80px; width:100px"alt="My Image">
+            <img src="{{url('/uploads/'.$data->room_image)}}"style="height:80px; width:100px"alt="Room Image">
             </td>
             <td>{{$data->name}}</td>
             <td>{{$data->room_type_id}}</td>

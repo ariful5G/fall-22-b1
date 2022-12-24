@@ -31,7 +31,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ (request()->is('guest*')) ? 'active' : '' }}" href="{{route('guest')}}">
+            <a class="nav-link {{ (request()->is('admin/guest*')) ? 'active' : '' }}" href="{{route('guest')}}">
               <span data-feather="file"></span><i class="fa-solid fa-user-group"></i>
               Guest
             </a>

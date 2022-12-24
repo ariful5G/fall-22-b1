@@ -38,11 +38,11 @@
 				<form method="post" action="{{route('user.registration')}}" enctype="multipart/form-data">
 					@csrf
 
-					Name: <input type="text" name="name" class="form-control" placeholder="Enter Your Name">
+					Name: <input type="text" name="name" required class="form-control" placeholder="Enter Your Name">
 					Email: <input type="email" name="email" class="form-control" required placeholder="Enter Your Email">
 					Password: <input type="password" name="password" class="form-control" min="4" placeholder="Enter Your Password">
-					Contact No: <input type="number" name="contact" class="form-control" placeholder="Enter Your Contact No">
-					Address: <input type="text" name="address" class="form-control" placeholder="Enter Your Address">
+					Contact No: <input type="number" name="contact" required class="form-control" placeholder="Enter Your Contact No">
+					Address: <input type="text" name="address" required class="form-control" placeholder="Enter Your Address">
 					Gender:<br>
 					<input type="radio" name="gender" value="Male">Male<br>
 					<input type="radio" name="gender" value="Female">Female<br>
@@ -57,7 +57,7 @@
 	</div>
 </div>
 
-<!-- Modal -->
+<!-- Modal for Login -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -75,7 +75,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="email"name="email" class="form-control" placeholder="Please Enter Your Email">
+						<input type="email"name="email" required class="form-control" placeholder="Please Enter Your Email">
 
 					</div>
 					<label>Password:</label>
@@ -83,7 +83,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="Please Enter Your Password" name="password">
+						<input type="password" required class="form-control" placeholder="Please Enter Your Password" name="password">
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember

@@ -105,6 +105,7 @@ Route::get('/room/edit/{roomEdit}',[RoomController::class,'roomEdit'])->name('ro
 Route::put('/room/edit/{roomUpdate}',[RoomController::class,'Update'])->name('room.update');
 
 Route::get('/booking',[BookingController::class,'list'])->name('booking');
+Route::get('/booking/{bookingDetails}',[BookingController::class,'bookingDetails'])->name('booking.details');
 
 Route::get('/amenities',[AmenitiesController::class,'list'])->name('amenities');
 Route::get('/amenities/create',[AmenitiesController::class,'create'])->name('amenities.create');

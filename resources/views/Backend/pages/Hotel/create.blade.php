@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Contact</h1>
+<h1>Hotel Information</h1>
 
 @if(session()->has('message'))
 <p class="alert alert-success">{{session()->get('message')}}</p>
@@ -29,11 +29,9 @@
     </div>
    <div><br>
         <button type="submit" class="btn btn-primary">Submit</button>
-        @foreach($hotel as $data)
-            <td>
-                <a href="{{route('admin.hotel.edit',$data->id)}}" class="btn btn-primary">Edit</a>
+             <td>
+                <a href="{{route('admin.hotel.edit',$hotel[0]->id)}}" class="btn btn-primary">Edit<a>
             </td> 
-         @endforeach
    </div>
 </form>
       

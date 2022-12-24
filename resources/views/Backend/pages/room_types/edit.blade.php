@@ -25,7 +25,7 @@
     <div> -->
     <div>
         <label for="image">Upload Image</label>
-        <input type="file"value="{{$room->room_image}}" name="image" class="form-control"id="image">
+        <input type="file"value="{{$room->room_image}}" name="image" required class="form-control"id="image">
    </div>
    <div><br>
         <button type="submit" class="btn btn-primary">Update</button>

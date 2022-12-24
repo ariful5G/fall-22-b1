@@ -16,9 +16,9 @@
         </tr>
     </thead>
 <tbody>
-@foreach($user_list as $data)
+@foreach($user_list as $key =>$data)
         <tr>
-            <td>{{$data->id}}</td>
+            <td>{{$key + $user_list->firstItem()}}</td>
             <td>{{$data->name}}</td>
             <td>{{$data->email}}</td>
             <td>{{$data->contact}}</td>

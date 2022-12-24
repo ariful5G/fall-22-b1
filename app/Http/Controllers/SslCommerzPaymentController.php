@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\BookingDetails;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Library\SslCommerz\SslCommerzNotification;
+use Illuminate\Support\Facades\Validator;
 
 class SslCommerzPaymentController extends Controller
 {
@@ -29,7 +30,7 @@ class SslCommerzPaymentController extends Controller
         # Here you have to receive all the order data to initate the payment.
         # Let's say, your oder transaction informations are saving in a table called "orders"
         # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
-        
+        // dd($id);
         
         $room= Room::find($id);
         // dd($room);
@@ -71,13 +72,14 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
 
-
-        $request->validate(([
-          
+        $validate=Validator::make($request->all(),[
             "check_in"=>"date|after_or_equal:now",
             "check_out"=>"date|after:check_in",
+        ]);
+
     
-          ]));
+        Alert::success($validate->getMessageBag());
+
 
         $room = Room::find($id);
         $fromDate=$request->check_in;
@@ -85,15 +87,24 @@ class SslCommerzPaymentController extends Controller
 
         // 
 
-        $roomAvailability = Booking::where('room_id',$room->id)
+        $roomAvailability = BookingDetails::where('room_id',$room->id)
                             ->whereBetween('check_in_date',[$fromDate,$toDate])
                             ->pluck('check_in_date');
-        ($roomAvailability);
-        
+                
         $period = CarbonPeriod::create($fromDate, $toDate);
        
 
         $totalDays = count($period);
+
+        $booking =  Booking::create([
+            'user_id'=>auth()->user()->id,
+            'room_id'=>$room->id,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            "days"=>$totalDays,
+            'total_amount'=>$post_data['total_amount']
+           
+        ]); 
         // Iterate over the period
         foreach ($period as $date) {
           foreach($roomAvailability as $availableRoom){
@@ -103,7 +114,9 @@ class SslCommerzPaymentController extends Controller
                   return redirect()->route('website.rooms');
                 }
           }
-         $booking =  Booking::create([
+ 
+        BookingDetails::create([
+            'booking_id'=>$booking->id,
             'user_id'=>auth()->user()->id,
             'room_id'=>$room->id,
             'name'=>$request->name,
@@ -111,12 +124,11 @@ class SslCommerzPaymentController extends Controller
             'address'=>$request->address,
             'contact'=>$request->contact,
             'check_in_date'=>$date,
-            "days"=>$totalDays,
-            'total_amount'=>$post_data['total_amount']
            
-        ]); 
+        ]);
        
         }
+     
     
 
         $sslc = new SslCommerzNotification();

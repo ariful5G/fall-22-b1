@@ -56,7 +56,7 @@
                     <td>{{$data->contact}}</td>
                     <td>{{$data->check_in_date}}</td>
                     <td>{{$data->days}}</td>
-                    <td>{{$data->total_amount}}</td>
+                    <td>{{$data->total_amount*$data->days}}</td>
                     <td>{{$data->status}}</td>
                     <!-- <td>{{$data->check_out_date}}</td> -->
                 </tr>

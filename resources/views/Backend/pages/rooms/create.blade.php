@@ -2,6 +2,15 @@
 
 @section('content')
 <h1>Add Room</h1>
+@if($errors->any())
+    	    @foreach($errors->all() as $message)
+        	<p class="alert alert-danger">{{$message}}</p>
+       	@endforeach
+       	@endif
+
+@if(session()->has('message'))
+<p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
 
 <form method='post' action="{{route('room.store')}}" enctype="multipart/form-data">
      @csrf
@@ -29,16 +38,16 @@
  
     <div class= "form-group">
         <label for="amount">Amount</label>
-        <input type="number" name="amount"required class="form-control" id="price" placeholder="Enter Amount">
+        <input type="number" name="amount"  required class="form-control" id="price" placeholder="Enter Amount" >
     </div>
    
       <div class= "form-group">
         <label for="accomodate">Accomodate</label>
-        <input type="number" name="accomodate"required class="form-control" id="price" placeholder="Number of accomodation">
+        <input type="number" name="accomodate" required class="form-control" id="price" placeholder="Number of accomodation" min="1">
     </div>
     <div>
         <label for="Room_image">Upload Room Image</label>
-        <input type="file" name="image" class="form-control"id="image">
+        <input type="file" name="image" required class="form-control"id="image">
    </div><br>
   
    <div>

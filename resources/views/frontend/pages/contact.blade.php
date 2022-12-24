@@ -27,25 +27,25 @@
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-          @foreach($hotel as $data)<p><span>Address: </span> <a href="tel://1234567920">{{$data->Address}}</a></p>@endforeach
+          <p><span>Address: </span> <a href="tel://1234567920">{{$hotel->Address}}</a></p>
         </div>
       </div>
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-          @foreach($hotel as $data) <p><span>Email: </span> <a href="mailto:info@yoursite.com">{{$data->Email}}</a></p>@endforeach
+           <p><span>Email: </span> <a href="mailto:info@yoursite.com">{{$hotel->Email}}</a></p>
         </div>
       </div>
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-          @foreach($hotel as $data) <p><span>Phone: <br></span> <a href="tel://1234567920">{{$data->Contact}}</a></p>@endforeach
+           <p><span>Phone: <br></span> <a href="tel://1234567920">{{$hotel->Contact}}</a></p>
         </div>
       </div>
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-          @foreach($hotel as $data)<p><span>Website:<br> </span> <a href="#">{{$data->Website}}</a></p>@endforeach
+          <p><span>Website:<br> </span> <a href="#">{{$hotel->Website}}</a></p>
         </div>
       </div>
     </div>

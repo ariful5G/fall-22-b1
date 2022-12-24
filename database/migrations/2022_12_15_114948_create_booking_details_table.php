@@ -23,8 +23,6 @@ return new class extends Migration
             $table->string('address');
             $table->string('contact');
             $table->date('check_in_date');
-            $table->integer('days')->nullable();
-            $table->integer('total_amount')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();
         });

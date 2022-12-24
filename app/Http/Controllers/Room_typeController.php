@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use App\Models\Room_type;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,12 @@ class Room_typeController extends Controller
     public function store(Request $request)
 
     {
+
+        $request->validate([
+            'room_name'=>'required',
+            'amount'=>'required | min:1 |numeric:room_types',
+            'image'=>'required | mimes:jpg,png,jpeg,gif',
+        ]);
         $fileName=null;
         if($request->hasFile('image'))
         {
@@ -34,7 +41,7 @@ class Room_typeController extends Controller
             'description'=>$request->description,
         ]);
     
-        return redirect()->back()->with('message','room added successfully.');
+        return redirect()->back()->with('message','Room_type added successfully.');
     }
     
     public function roomdelete($roomDelete)
@@ -54,9 +61,9 @@ class Room_typeController extends Controller
 
     public function roomView($roomView)
     {
-        $room=Room_type::find($roomView);
         
-        return view('backend.pages.room_types.view',compact('room'));
+        $rooms=Room::where('room_type_id',$roomView)->get();
+        return view('backend.pages.room_types.view',compact('rooms'));
     }
 
     public function roomEdit($roomEdit)
@@ -66,7 +73,9 @@ class Room_typeController extends Controller
     }
     public function update(Request $request,$roomUpdate)
     {
-        
+        $request->validate([
+            'image'=>'required | mimes:jpg,png,jpeg,gif']);
+            
         $room=Room_type::find($roomUpdate); 
         $fileName=$room->image;
 

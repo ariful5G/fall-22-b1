@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function list()
     {
-        $user_list=User::paginate(4);
+        $user_list=User::whereNot("role","admin")->paginate();
         return view('backend.pages.user_list',compact('user_list'));
     }
 

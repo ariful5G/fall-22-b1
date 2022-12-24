@@ -3,6 +3,14 @@
 
 @section('content')
 
+@php
+use RealRashid\SweetAlert\Facades\Alert;
+if($errors->any()){
+	foreach($errors->all() as $error){
+		Alert::error('Error', $error);
+	}
+}
+@endphp
 <section class="home-slider owl-carousel">
 	<div class="slider-item" style="background-image:url('/frontend/images/bg_1.jpg')">
 		<div class="overlay"></div>
@@ -151,7 +159,7 @@
 
 
 
-<section class="ftco-section">
+<!-- <section class="ftco-section">
 	<div class="container">
 		<div class="row d-flex">
 			<div class="col-md-3 d-flex align-self-stretch ftco-animate">
@@ -208,7 +216,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);">
 	<div class="container">
@@ -218,7 +226,7 @@
 					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 						<div class="block-18 text-center">
 							<div class="text">
-								<strong class="number" data-number="5000">0</strong>
+								<strong class="number" data-number="400">0</strong>
 								<span>Happy Guests</span>
 							</div>
 						</div>
@@ -226,7 +234,7 @@
 					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 						<div class="block-18 text-center">
 							<div class="text">
-								<strong class="number" data-number="300">0</strong>
+								<strong class="number" data-number="200">0</strong>
 								<span>Rooms</span>
 							</div>
 						</div>
@@ -242,7 +250,7 @@
 					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 						<div class="block-18 text-center">
 							<div class="text">
-								<strong class="number" data-number="10">0</strong>
+								<strong class="number" data-number="50">0</strong>
 								<span>Users</span>
 							</div>
 						</div>
@@ -310,25 +318,25 @@
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-        @foreach($hotel as $data)<p><span>Address: </span> <a href="tel://1234567920">{{$data->Address}}</a></p>@endforeach
+        <p><span>Address: </span> {{$hotel[0]->Address}}</p>
         </div>
       </div>
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-        @foreach($hotel as $data) <p><span>Email: </span> <a href="mailto:info@yoursite.com">{{$data->Email}}</a></p>@endforeach
+         <p><span>Email: </span> <a href="mailto:{{$hotel[0]->Email}}">{{$hotel[0]->Email}}</a></p>
         </div>
       </div>
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-        @foreach($hotel as $data) <p><span>Phone: <br></span> <a href="tel://1234567920">{{$data->Contact}}</a></p>@endforeach
+         <p><span>Phone: <br></span> <a href="tel://{{$hotel[0]->Contact}}">{{$hotel[0]->Contact}}</a></p>
         </div>
       </div>
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-        @foreach($hotel as $data)<p><span>Website: <br></span> <a href="#">{{$data->Website}}</a></p>@endforeach
+        <p><span>Website: <br></span> <a href="#">{{$hotel[0]->Website}}</a></p>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Guest Comments</h1>
+<h1>Guests Message List</h1>
     <table class="table table-striped">
         <thead>
         <tr>

@@ -42,13 +42,22 @@ class LandingpageController extends Controller
   {
     $rooms=Room_type::all();
     $contact=Guest::all();
-    $hotel=Hotel::all();
+    $hotel=Hotel::first();
+    // dd($hotel);
     return view('frontend.pages.contact',compact('rooms','contact','hotel'));
   }
 
   public function signup(request $request)
   {
-    //dd($request->all());
+    // dd($request->all());
+
+    $request->validate([
+      "name" => "required",
+      "email" => "required|email",
+      "password" => "required",
+      "contact" => "required",
+      "gender" => "required",
+    ]);
     User::create([
       //database column name => input field name
       'name' => $request->name,
@@ -65,12 +74,20 @@ class LandingpageController extends Controller
 
   public function login(request $request)
   {
+    $request->validate([
+      "email" => "required|email",
+      "password" => "required",
+    ]);
     //    dd($request->all());
     $credentials = $request->except('_token');
     //    dd($credentials);
     if (auth()->attempt($credentials)) {
-      return redirect()->back();
+      
+      Alert::success('Login', "Login Successful");
+      return redirect()->route("website");
     }
+      Alert::error('Error', "Credentials is Not Match");
+    return redirect()->route("website");
   }
 
   public function logout()
@@ -137,10 +154,7 @@ class LandingpageController extends Controller
             'room_id'=>$room->id,
             'name'=>$request->name,
             'email'=>$request->email,
-            'address'=>$request->address,
-            'contact'=>$request->contact,
-            'check_in_date'=>$date,
-          
+            'total_days'=>$date,
         ]); 
         BookingDetails::create([
           'booking_id'=>$booking->id,

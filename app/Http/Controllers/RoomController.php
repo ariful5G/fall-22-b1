@@ -22,6 +22,14 @@ class RoomController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'room_name'=>'required',
+            'image'=>'required | mimes:jpg,png,jpeg,gif',
+            'room_no'=>'required | min:1 |numeric:rooms',
+            'name'=>'required',
+            'amount'=>'required | min:1 |numeric:rooms',
+            'accomodate'=>'required | min:1 |numeric:rooms',
+        ]);
 
         $fileName=null;
         if($request->hasFile('image'))
@@ -40,7 +48,7 @@ class RoomController extends Controller
             'amount'=>$request->amount,
             'no_of_accomodate'=>$request->accomodate,
         ]);
-        return redirect()->back()->with('message','Data added successfully.');
+        return redirect()->back()->with('message','Room added successfully.');
     }
     public function roomdelete($roomDelete)
     {

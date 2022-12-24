@@ -23,7 +23,7 @@ class HotelController extends Controller
             'Website'=>$request->website,
             
         ]);
-        return redirect()->back()->with('message','Data added successfully.');
+        return redirect()->back()->with('message','Information added successfully.');
     }
  
     public function hotelEdit($hotelEdit)
