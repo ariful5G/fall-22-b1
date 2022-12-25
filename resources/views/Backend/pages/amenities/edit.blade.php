@@ -9,8 +9,6 @@
      <div class="form-group">
         <label for="name">Amenities Name</label>
         <select name="name" id="" class="form-control">
-                <option value="parking">Car Parking</option>
-                <option value="free-wifi">Free-wifi</option>
                 <option value="airport-drop & pick-up">Airport Drop & Pick-up</option>
                 <option value="free-breakfast">Free breakfast</option>
         </select>

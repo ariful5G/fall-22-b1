@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Add Room</h1>
+<h1>Adding Room</h1>
 
 @if(session()->has('message'))
 <p class="alert alert-success">{{session()->get('message')}}</p>
@@ -45,6 +45,10 @@
       <div class= "form-group">
         <label for="accomodate">Accomodate</label>
         <input type="number" name="accomodate" required class="form-control" id="price" placeholder="Number of accomodation" min="1">
+    </div>
+    <div class= "form-group">
+        <label for="Bed"> Bed</label>
+        <input type="number" name="bed" required class="form-control" id="price" placeholder="Number of bed" min="1">
     </div>
     <div>
         <label for="Room_image">Upload Room Image</label>

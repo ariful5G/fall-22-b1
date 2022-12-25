@@ -5,7 +5,6 @@
 <table class="table">
         <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Room image</th>
             <th scope="col">Room Name</th>
             <th scope="col">Room No</th>
@@ -17,7 +16,6 @@
         <tbody>
         @foreach($rooms as $data)
         <tr>
-            <td>{{$data->id}}</td>
             <td>
             <img src="{{url('/uploads/'.$data->room_image)}}"style="height:150px; width:250px"alt="My Image">
             </td>

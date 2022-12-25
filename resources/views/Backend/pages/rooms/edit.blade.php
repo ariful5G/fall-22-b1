@@ -34,6 +34,10 @@
         <label for="accomodate">Accomodate</label>
         <input type="number" value="{{$room->no_of_accomodate}}"name="accomodation" class="form-control" id="price" placeholder="Number of accomodate">
     </div>
+    <div class= "form-group">
+        <label for="Bed"> Bed</label>
+        <input type="number" name="bed" value="{{$room->bed}}" class="form-control" id="price" placeholder="Number of bed" min="1">
+    </div>
   
    <div>
         <button type="submit" class="btn btn-primary">Update</button>

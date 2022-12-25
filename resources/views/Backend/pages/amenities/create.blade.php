@@ -11,8 +11,6 @@
         <select name="name" id="" class="form-control">
             <option value="free-breakfast">Free breakfast</option>
             <option value="airport-drop & pick-up">Airport Drop & Pick-up</option>
-            <option value="parking">Car Parking</option>
-            <option value="free-wifi">Free-wifi</option>
         </select>
     </div>
     <div class="form-group">

@@ -22,7 +22,7 @@
 							<li><span>Max: </span>{{$room->no_of_accomodate}} Person</li>
 							<li><span>Size: </span> 45 m2</li>
 							<li><span>View: </span> Sea View</li>
-							<li><span>Bed: </span>2</li>
+							<li><span>Bed: </span>{{$room->bed}}</li>
 						</ul>
 					</div>
 				</div>

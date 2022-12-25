@@ -72,13 +72,17 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
 
-        $validate=Validator::make($request->all(),[
+
+       $request->validate([
             "check_in"=>"date|after_or_equal:now",
             "check_out"=>"date|after:check_in",
         ]);
-
-    
-        Alert::success($validate->getMessageBag());
+        // $validate=Validator::make($request->all(),[
+        //     "check_in"=>"date|after_or_equal:now",
+        //     "check_out"=>"date|after:check_in",
+        // ]);
+  
+        // Alert::success($validate->getMessageBag());
 
 
         $room = Room::find($id);
@@ -95,26 +99,30 @@ class SslCommerzPaymentController extends Controller
        
 
         $totalDays = count($period);
-
-        $booking =  Booking::create([
-            'user_id'=>auth()->user()->id,
-            'room_id'=>$room->id,
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'address'=>$request->address,
-            'contact'=>$request->contact,
-            "days"=>$totalDays,
-            'total_amount'=>$post_data['total_amount']
-           
-        ]); 
+        $booking = null;
         // Iterate over the period
-        foreach ($period as $date) {
+        foreach ($period as $key=> $date) {
           foreach($roomAvailability as $availableRoom){
             // $dateToFormateYHD = 
                 if($availableRoom = date('Y-m-d',strtotime($date))){
                   Alert::error('Opps !!', 'Room Not Available on this day');
                   return redirect()->route('website.rooms');
                 }
+          }
+
+          if($key == 0 ){
+
+            $booking =  Booking::create([
+                'user_id'=>auth()->user()->id,
+                'room_id'=>$room->id,
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'address'=>$request->address,
+                'contact'=>$request->contact,
+                "days"=>$totalDays,
+                'total_amount'=>$post_data['total_amount']
+               
+            ]); 
           }
  
         BookingDetails::create([
@@ -131,8 +139,6 @@ class SslCommerzPaymentController extends Controller
        
         }
      
-    
-
         $sslc = new SslCommerzNotification();
         # initiate(Transaction Data , false: Redirect to SSLCOMMERZ gateway/ true: Show all the Payement gateway here )
         $payment_options = $sslc->makePayment($post_data, 'hosted');

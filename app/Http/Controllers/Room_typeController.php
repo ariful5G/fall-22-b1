@@ -10,7 +10,7 @@ class Room_typeController extends Controller
 {
     public function list()
     {
-        $room_types=Room_type::paginate(4);
+        $room_types=Room_type::paginate(5);
         return view('backend.pages.room_types.list', compact('room_types'));
     }
     public function CreateForm()
@@ -38,7 +38,6 @@ class Room_typeController extends Controller
             'room_image'=>$fileName,
             'name'=>$request->room_name,
             'amount'=>$request->amount,
-            'description'=>$request->description,
         ]);
     
         return redirect()->back()->with('message','Room_type added successfully.');
@@ -90,7 +89,6 @@ class Room_typeController extends Controller
             'room_image'=>$fileName,
             'name'=>$request->room_name,
             'amount'=>$request->amount,
-            'description'=>$request->description,  
         ]);
         return redirect()->route('room_type')->with('message','Update successfull.');
 

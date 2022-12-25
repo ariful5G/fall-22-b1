@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Room List</h1>
+<h1>Rooms List</h1>
 
 @if(session()->has('message'))
 <p class="alert alert-success">{{session()->get('message')}}</p>
@@ -19,6 +19,7 @@
             <th scope="col">Type</th>
             <th scope="col">Amount</th>
             <th scope="col">No of Accomodate</th>
+            <th scope="col">No of Bed</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -36,6 +37,7 @@
             <td>{{$data->type}}</td>
             <td>{{$data->amount}}</td>
             <td>{{$data->no_of_accomodate}}</td>
+            <td>{{$data->bed}}</td>           
             <td>
                 <a href="{{route('room.edit',$data->id)}}" class="btn btn-outline-primary">Edit</a>
                 <a href="{{route('room.delete',$data->id)}}" class="btn btn-outline-danger">Delete</a>

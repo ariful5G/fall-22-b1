@@ -18,7 +18,7 @@ if($errors->any()){
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-12 ftco-animate text-center">
 					<div class="text mb-5 pb-3">
-						<h1 class="mb-3">Welcome To Hotel Sea Place</h1>
+						<h1 class="mb-3">Welcome To Hotel Sea Palace</h1>
 						<h2>Hotels &amp; Resorts</h2>
 					</div>
 				</div>
@@ -83,7 +83,7 @@ if($errors->any()){
 				<div class="heading-section-wo-line pt-md-5 pl-md-5 mb-5">
 					<div class="">
 						<h2 class="">Welcome To Our Hotel</h2>
-						 <span class="subheading">Welcome to Hotel Sea Place</span>
+						 <span class="subheading">Welcome to Hotel Sea Palace</span>
 					</div>
 				</div>
 				<div class="pb-md-5">

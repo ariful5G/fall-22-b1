@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2> Room Details </h2>
+<h2>Adding Room_type </h2>
          @if($errors->any())
     	    @foreach($errors->all() as $message)
         	<p class="alert alert-danger">{{$message}}</p>

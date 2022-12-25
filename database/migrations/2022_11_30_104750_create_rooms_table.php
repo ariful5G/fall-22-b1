@@ -18,10 +18,11 @@ return new class extends Migration
             $table->foreignId('room_type_id')->constrained('room_types');
             $table->string('room_image')->nullable();
             $table->string('name')->nullable();
-            $table->integer('room_no')->nullable();
+            $table->integer('room_no');
             $table->string('type');
-            $table->integer('amount')->nullable();
+            $table->integer('amount');
             $table->integer('no_of_accomodate')->nullable();
+            $table->integer('bed');
             $table->timestamps();
         });
     }

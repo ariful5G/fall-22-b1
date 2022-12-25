@@ -22,7 +22,11 @@
                 <div class="row">
                     <div class="booking-form">
                         <div class="booking-bg"></div>
-
+                        @if($errors->any())
+                            @foreach($errors->all() as $error)
+                                <div class="alert alert-danger">{{$error}}</div>
+                            @endforeach
+                        @endif
                         <form method='post' action="{{route('pay.now',$room->id)}}">
                         @csrf
                             <div class="form-header">

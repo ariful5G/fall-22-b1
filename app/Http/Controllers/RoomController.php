@@ -13,7 +13,7 @@ class RoomController extends Controller
 {
     public function vip()
     { 
-        $room=Room::paginate(4);
+        $room=Room::paginate(5);
         return view("backend.pages.rooms.list",compact('room'));
     }
     public function createform()
@@ -30,6 +30,7 @@ class RoomController extends Controller
             'name'=>'required',
             'amount'=>'required | min:1 |numeric:rooms',
             'accomodate'=>'required | min:1 |numeric:rooms',
+            'bed'=>'required | min:1 |numeric:rooms',
         ]);
 
         $fileName=null;
@@ -48,6 +49,7 @@ class RoomController extends Controller
             'type'=>$request->name,
             'amount'=>$request->amount,
             'no_of_accomodate'=>$request->accomodate,
+            'bed'=>$request->bed,
         ]);
         return redirect()->back()->with('message','Room added successfully.');
     }
@@ -75,6 +77,7 @@ class RoomController extends Controller
             'type'=>$request->name,
             'amount'=>$request->amount,
             'no_of_accomodate'=>$request->accomodation,  
+            'bed'=>$request->bed,  
         ]);
         return redirect()->route('rooms')->with('message','Update successfull.');
 
