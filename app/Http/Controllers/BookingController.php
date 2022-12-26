@@ -12,7 +12,6 @@ class BookingController extends Controller
     {
         $rooms =Booking::with('roomRelation')->get();
         
-        
         return view('backend.pages.booking',compact('rooms'));
     }
     public function bookingDetails($id)

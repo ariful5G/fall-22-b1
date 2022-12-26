@@ -39,7 +39,7 @@
 
       <div class="col-md-3 d-flex">
         <div class="info bg-white p-4">
-           <p><span>Phone: <br></span> <a href="tel://1234567920">{{$hotel->Contact}}</a></p>
+           <p><span>Phone: <br></span> <a href="tel://01234567920">{{$hotel->Contact}}</a></p>
         </div>
       </div>
 
